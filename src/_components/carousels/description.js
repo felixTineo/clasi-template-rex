@@ -7,7 +7,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const DescriptioneCont = styled.div`
   padding: 2rem;
-  color: #fff;
+  color: ${props => props.theme.main.primaryColor};
 `
 const DescriptionTitle = styled.h2`
   

@@ -64,10 +64,15 @@ const SvgCont = styled.svg`
     fill: ${props => props.theme.main.primaryColor};
   }
 `
+const NavMainCont = styled.div`
+  background-color: ${props => props.theme.main.primaryColor};
+  color: #fff;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+`
 const NavCont = styled.nav`
   display: flex;
   align-items: center;
-  margin-bottom: 2rem;
 `
 const NavTitle = styled.span`
   
@@ -79,15 +84,15 @@ const NavList = styled.ul`
   display: flex;
 `
 const NavOption = styled.button`
-  background-color: transparent;
+  background-color: ${props => props.active ? "#fff" : 'transparent'};
   transition: 250ms ease;
-  box-shadow: ${props => props.active ? "0px 1px 1px rgba(0, 0, 0, .12), 0px 2px 2px rgba(0, 0, 0, .12), 0px 4px 4px rgba(0, 0, 0, .12), 0px -1px 4px rgba(0, 0, 0, .12), 0px 8px 8px rgba(0, 0, 0, .12)" : "none"};
-  color: ${props => props.theme.main.primaryColor};
+  //box-shadow: ${props => props.active ? "0px 1px 1px rgba(0, 0, 0, .12), 0px 2px 2px rgba(0, 0, 0, .12), 0px 4px 4px rgba(0, 0, 0, .12), 0px -1px 4px rgba(0, 0, 0, .12), 0px 8px 8px rgba(0, 0, 0, .12)" : "none"};
   border: none;
   cursor: pointer;
   width: 58px;
   height: 34px;
   border-radius: 25px;
+  color: ${props => props.active ? props.theme.main.primaryColor : '#fff'};;
   @media(min-width: 768px){
     width: 106px;
     height: 34px;
@@ -132,31 +137,37 @@ export default ()=> {
 
   return(
     <MainCont>
-    <Container>
+
       <div style={{ paddingTop: '2rem' }}>
         <Row>
           <Col xs={12}>
-            <NavCont>
-              <NavTitle>Categorias: </NavTitle>
-              <NavList>
-                <li>
-                  <NavOption onClick={()=> setTag("TODAS")} active={tag === "TODAS"}>
-                    Todas
-                  </NavOption>
-                </li>                
-                <li>
-                  <NavOption onClick={()=> setTag("LEGALES")} active={tag === "LEGALES"}>
-                    Legales
-                  </NavOption>
-                </li>
-                <li>
-                  <NavOption onClick={()=> setTag("NOTICIAS")} active={tag === "NOTICIAS"}>
-                    Noticias
-                  </NavOption>
-                </li>                
-              </NavList>
-            </NavCont>
+            <NavMainCont>
+              <Container>
+                <NavCont>
+                  <NavTitle>Categorias: </NavTitle>
+                  <NavList>
+                    <li>
+                      <NavOption onClick={()=> setTag("TODAS")} active={tag === "TODAS"}>
+                        Todas
+                      </NavOption>
+                    </li>                
+                    <li>
+                      <NavOption onClick={()=> setTag("LEGALES")} active={tag === "LEGALES"}>
+                        Legales
+                      </NavOption>
+                    </li>
+                    <li>
+                      <NavOption onClick={()=> setTag("NOTICIAS")} active={tag === "NOTICIAS"}>
+                        Noticias
+                      </NavOption>
+                    </li>                
+                  </NavList>
+                </NavCont>
+              </Container>
+            </NavMainCont>
           </Col>
+          <Container>
+            <Row>
           {
             news.map(n => (
               <Col key={n.id} xs={12} md={4} style={{ margin: "1rem 0" }}>
@@ -164,6 +175,8 @@ export default ()=> {
               </Col>
             ))
           }
+          </Row>
+          </Container>
           <Col xs={12}>
             <NavPaginate>
               <NavArrow>
@@ -195,7 +208,6 @@ export default ()=> {
           </Col>
         </Row>
       </div>
-    </Container>
     </MainCont>
   )
 }

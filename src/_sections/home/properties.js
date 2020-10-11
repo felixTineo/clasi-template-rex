@@ -7,7 +7,6 @@ import { Rectangular } from '../../_components/banners';
 
 const MainCont = styled.section`
   min-height: 100vh;
-  margin-top: ${props => props.noMargin ? "4rem" : "13rem"};
   @media(min-width:768px){
     padding: 4rem 0;
   }
@@ -42,7 +41,7 @@ export default ({ noMargin })=> {
               image={state.bannerImage}
               buttonText={state.buttonText}
               title={state.footer}
-              icon="/icons/marker.svg"
+              //icon="/icons/marker.svg"
             />
           </Col>
         </Row>

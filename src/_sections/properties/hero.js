@@ -1,22 +1,40 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
-import { FormProperty } from '../../_components/forms';
+import { SearchForm } from '../../_components/forms';
 import { Input, Select } from '../../_components/inputs';
 import { Button } from '../../_components/buttons';
 import { useWindowSize } from '../../_hooks';
+import { DownCircleFilled } from '@ant-design/icons';
+
 const SectionCont = styled.div`
   background-color: #fff;
   padding: 8rem 0 0;
 `
-
-const SearchForm = styled.form`
+const TitleCont = styled.div`
+  width: 50%;
+  margin-bottom: 2rem;
+`
+const Title = styled.h1`
+  color: ${props => props.theme.main.primaryColor};
+`
+const FormSelectButton = styled.button`
+  color: ${props => props.active ?  props.theme.main.primaryColor : '#ADADAD'};
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+`
+/*const SearchForm = styled.form`
   width: 100%;
   margin-bottom: 2rem;
   @media(min-width: 768px){
    margin: 4rem 0 6rem;
   } 
-`
+`*/
 const FilterForm = styled.form`
   width: 100%;
   padding: 1.5rem 0;
@@ -56,14 +74,38 @@ const SvgCont = styled.svg`
 export default ()=> {
   const size = useWindowSize();
   const [filter, setFilter] = useState(false);
+  const [searchByCode, setSearchByCode] = useState(false);
   return(
     <SectionCont>
       <Container>
-        <h1>Propiedades</h1>
-        <Row align="center">
-          <Col xs={12}>
-            <FormProperty horizontal block shadow/>
-          </Col>
+        <TitleCont>
+          <Row>
+            <Col xs={12}>
+              <Title>Propiedades</Title>
+            </Col>
+            <Col xs={12} md={4}>
+              <FormSelectButton active={!searchByCode} onClick={()=> setSearchByCode(false)}>
+                Buscar propiedades
+                {
+                  !searchByCode && <DownCircleFilled style={{ marginLeft: 8 }} />
+                }
+              </FormSelectButton>
+            </Col>
+            <Col xs={12} md={4}>
+              <FormSelectButton active={searchByCode} onClick={()=> setSearchByCode(true)}>
+                Buscar por código
+                  {
+                    searchByCode && <DownCircleFilled style={{ marginLeft: 8 }} />
+                  }                    
+              </FormSelectButton>
+            </Col>                          
+          </Row>
+        </TitleCont>
+      </Container>
+      <Row align="center">
+        <Col xs={12}>
+          <SearchForm property />
+        </Col>
 {/*          <Col xs={12} md={2}>
             <ButtonFilter onClick={()=> setFilter(!filter)}>
               Más filtros
@@ -74,8 +116,7 @@ export default ()=> {
               </SvgCont>
             </ButtonFilter>
   </Col>*/}
-        </Row>
-      </Container>
+      </Row>
         {/*
           filter && (
             <FilterForm>

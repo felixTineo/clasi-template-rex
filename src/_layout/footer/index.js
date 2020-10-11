@@ -52,10 +52,10 @@ const NavLink = styled.a`
   color: #212121;
   transition: 250ms ease;
   text-decoration: none;
-  font-weight: bold;
   margin-bottom: 1rem;
   @media(min-width: 768px){
     display: block;
+    text-align: center;
   }
   &:hover{
     color: ${props => props.theme.main.primaryColor} !important;
@@ -73,6 +73,7 @@ const SocialNav = styled.ul`
   margin: 0;
   list-style: none;
   //color: ${props => props.theme.main.primaryColor};
+  color: #919191;
   display: flex;
   align-content: center;
   justify-content: flex-end;
@@ -116,7 +117,7 @@ const BackTop = styled.button`
   align-items: center;
   width: 30px;
   height: 30px;
-  border-radius: 6px;
+  border-radius: 15px;
   background: ${props => props.theme.main.primaryColor};
   margin-bottom: 1rem;
   transition: 250ms ease;
@@ -167,24 +168,24 @@ export default ()=> {
             <Col xs={12} md={4}>
               <NavCont>
                 <Row>
-                  <Col xs={6} md={12}>
+                  <Col xs={6} md={3}>
                     <NavLink href="#about">
                       Nosotros
                     </NavLink>
                   </Col>
-                  <Col xs={6} md={12}>
+                  <Col xs={6} md={3}>
                     <NavLink href="#properties">
                       Propiedades
                     </NavLink>                  
                   </Col>
                   <Visible md xs xxl lg xl>
-                    <Col xs={6} md={12}>
+                    <Col xs={6} md={3}>
                       <NavLink href="#news">
                         Noticias
                       </NavLink>                  
                     </Col>
                   </Visible>
-                  <Col xs={6} md={12}>
+                  <Col xs={6} md={3}>
                     <NavLink href="#contact">
                       Contacto
                     </NavLink>                  
@@ -205,7 +206,7 @@ export default ()=> {
                         </BackTopCont>
                     </Hidden>                   
                   <SocialNav>
-                    <li>Siguenos en</li>
+                    <li style={{ color:"#919191" }}>Siguenos en</li>
                     <SocialItem style={{ marginLeft: "1rem" }}>
                       <a href="https://www.facebook.com">
                         <SvgIcon social={true} width="9" height="17" viewBox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">

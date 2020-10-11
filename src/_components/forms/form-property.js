@@ -159,7 +159,7 @@ export default ({ block, shadow, horizontal })=> {
                             options={["opcion 1", "opcion 2", "opcion 3"]}
                             gray
                             vertical={false}
-                          />                          
+                          />
                         </Col>                                                
                       </Row>
                     </FooterFilter>

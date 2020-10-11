@@ -35,8 +35,8 @@ const HeaderDate = styled.p `
 const Tag = styled.p`
   padding: 5px 19px;
   border-radius: 20px;
-  background: ${props => props.theme.main.primaryColor};
-  color: #fff;
+  background: #fff;
+  color: ${props => props.theme.main.primaryColor};
   user-select: none;
 `
 const Image = styled.img`
@@ -47,6 +47,8 @@ const Image = styled.img`
 `
 const IntroCont = styled.div`
   padding: 4rem 0 0;
+  background: ${props => props.theme.main.primaryColor};
+  color: #fff;  
 `
 const IntroFooter = styled.div`
   margin: 4rem 0;
@@ -65,17 +67,17 @@ const SocialItem = styled.li`
 
 `
 const SvgIcon = styled.svg`
-  fill: ${props => props.theme.main.primaryColor};
+  fill: #fff;
   margin-right: .5rem;
 `
 const SocialNav = styled.a`
-  color: #212121;
+  color: #fff;
   text-decoration: none; 
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
   &:visited{
-    color: #212121;
+    color: #fff;
   }
 `
 const SocialSpan = styled.span`
@@ -86,7 +88,9 @@ const SocialSpan = styled.span`
   }
 `
 const ArticleCont = styled.div`
-
+  background-color: ${props => props.theme.main.primaryColor};
+  color: #fff;
+  padding-bottom: 4rem;
 `
 const ArticleImg = styled.img`
   width: 100%;
@@ -95,6 +99,7 @@ const RelatedNewsCont = styled.div`
   margin-top: 6rem;
 `
 const RelatedNewsTitle = styled.div`
+  color: ${props => props.theme.main.primaryColor};
   margin: 4rem 0;
   font-weight: bold;
 `
@@ -112,14 +117,6 @@ export default ()=> {
               <HeaderTitle>
                 {state.hero.title}
               </HeaderTitle>
-              <HeaderDateContainer>
-                <HeaderDate>
-                  {state.hero.date}
-                </HeaderDate>
-                <Tag>
-                  {state.hero.tag}
-                </Tag>
-              </HeaderDateContainer>
               </InnerHeader>
             </Col>
             <Col xs={12} md={6}>
@@ -132,6 +129,14 @@ export default ()=> {
         <Container>
           <Row>
             <Col xs={12} md={6}>
+              <HeaderDateContainer>
+                <HeaderDate>
+                  {state.hero.date}
+                </HeaderDate>
+                <Tag>
+                  {state.hero.tag}
+                </Tag>
+              </HeaderDateContainer>              
               <div dangerouslySetInnerHTML={{ __html: state.intro.title }} />
               <IntroFooter>
                 <p style={{ margin:0 }}>

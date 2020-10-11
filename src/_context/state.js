@@ -23,7 +23,7 @@ export default {
     },      
   },
   main:{
-    primaryColor: "#9666FF",
+    primaryColor: "#FF5304",
     secondaryColor: "#ffffff",
     favicon: "",
     logo:{
@@ -396,7 +396,7 @@ export default {
     },
     contact:{
       visible: true,
-      title: "¿Necesitas vender, arrendar o comprar una propiedad? Somos tu socio perfecto.",
+      title: "¿Necesitas vender, arrendar o comprar una propiedad?",
       buttonText: "contacto"
     },    
   },
@@ -404,7 +404,7 @@ export default {
     hero:{
       visible: true,
       title: "Un equipo de profesionales especializado en el sector inmobiliario.",
-      background: '/hero.jpg',
+      background: '/about-hero.jpg',
     },
     history:{
       visible: true,

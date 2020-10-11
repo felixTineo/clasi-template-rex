@@ -6,7 +6,7 @@ export default styled.button`
   min-height: 44px;
   width: ${props => props.block && "100%"};
   border: 1px solid #FFFFFF;
-  border-radius: 6px;
+  border-radius: ${props => props.rounded ? '20px' : '6px'};
   cursor: pointer;
   display: flex;
   justify-content: center;

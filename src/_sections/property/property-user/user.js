@@ -3,23 +3,23 @@ import Context from '../../../_context';
 import styled from 'styled-components';
 import { Row, Col } from 'react-grid-system';
 import { Input } from '../../../_components/inputs';
-import { Button } from '../../../_components/buttons';
+import { Button, IconButton } from '../../../_components/buttons';
 
 const MainCont = styled.div`
   padding: 4rem;
-  //background-color: #dadada;
+  background-color: ${props => props.theme.main.primaryColor};
   //border: 1px solid #EBEBEB;
   height: 100%;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, .12),
+/*  box-shadow: 0px 1px 1px rgba(0, 0, 0, .12),
               0px 2px 2px rgba(0, 0, 0, .12),
               0px 4px 4px rgba(0, 0, 0, .12),
               0px 8px 8px rgba(0, 0, 0, .12),
-              0px 16px 16px rgba(0, 0, 0, .12);
+              0px 16px 16px rgba(0, 0, 0, .12);*/
 `
 const UserCont = styled.div`
   margin-top: 2rem;
   display: flex;
-  flex-direction: column;
+  //flex-direction: column;
   align-items: center;
 `
 const Avatar = styled.img`
@@ -49,8 +49,8 @@ const UserInfoCont = styled.ul`
 `
 const UserInfoItem = styled.li`
   font-weight: bold;
-  text-align: center;
-  color: ${props => props.theme.main.primaryColor};
+  //text-align: center;
+  color: #fff;
 `
 const ContactForm = styled.form`
   margin-top: 3rem;
@@ -118,21 +118,21 @@ export default ()=> {
           </Col>   
           <Col xs={12} md={12}>
             <ContactFormButtons>
-              <Button primary block>
+              <Button block rounded>
                 Enviar
               </Button>
             </ContactFormButtons>
           </Col>          
           <Col xs={12} md={12}>
             <ContactFormButtons>
-              <Button primary block>
+              <Button block rounded>
                 LLamar por teléfono
               </Button>
             </ContactFormButtons>
           </Col>
           <Col xs={12} md={12}>
             <ContactFormButtons>
-              <Button primary block>
+              <Button block rounded>
                 Enviar whatsapp
               </Button>
             </ContactFormButtons>

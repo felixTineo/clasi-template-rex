@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import Context from '../../_context';
 import styled from 'styled-components';
-import { Container, Row, Col } from 'react-grid-system';
+import { Container, Row, Col, Hidden } from 'react-grid-system';
 
 const MainCont = styled.section`
-  padding: 6rem 0;
+  padding: 4rem 0;
   //min-height: 100vh;
+  background-color: ${props => props.theme.main.primaryColor};
 `
 const HistoryCont = styled.div`
   display: flex;
@@ -13,9 +14,10 @@ const HistoryCont = styled.div`
   justify-content: center;
   align-items: flex-start;
   height: 100%;
+  color: #fff;
 `
 const Title = styled.h2`
-  color: ${props => props.theme.main.primaryColor};
+  color: #fff;
 `
 const Description = styled.div`
 
@@ -23,7 +25,8 @@ const Description = styled.div`
 const Image = styled.img`
   object-fit: cover;
   object-position: center;
-  width: 100%;
+  width: 448px;
+  height: 388px;
 `
 
 
@@ -33,7 +36,7 @@ export default ()=> {
     <MainCont>
       <Container>
         <Row>
-          <Col xs={12} md={6} push={{ md: 6 }}>
+          <Col xs={12} md={6}>
             <HistoryCont>
               <Title>
                 {state.history.title}
@@ -41,9 +44,13 @@ export default ()=> {
               <Description dangerouslySetInnerHTML={{__html: state.history.description}} />
             </HistoryCont>
           </Col>                    
-          <Col xs={12} md={6} pull={{ md: 6 }}>
-            <Image src="/history-image.jpg" alt="historia" />
-          </Col>
+          <Hidden xs>
+            <Col md={6}>
+              <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                <Image src="/history-image.jpg" alt="historia" />
+              </div>
+            </Col>
+          </Hidden>                    
         </Row>
       </Container>
     </MainCont>

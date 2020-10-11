@@ -23,7 +23,7 @@ const DescriptionCont = styled.div`
   padding: 4rem 3rem;
 `
 const Title = styled.h2`
-  font-size: 40px;
+  font-size: 30px;
 `
 const Description = styled.p`
   margin: 2rem 0 4rem;
@@ -32,8 +32,12 @@ const HeroImageContainer = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
+  @media(min-width: 578px){
+    justify-content: center;
+    align-items: center;
+  }
 `
 const HeroImage = styled.img`
   width: 100%;
@@ -44,6 +48,10 @@ const HeroImage = styled.img`
 const TitleService = styled(Title)`
   color: ${props => props.theme.main.primaryColor};
   padding-top: 4rem;
+  text-align: center;
+  @media(min-width: 578px){
+    width: 50%;
+  }
 `
 const SubTitleService = styled(Description)`
   font-weight: bold;
@@ -64,7 +72,6 @@ const QuoteCarouselCont = styled.div`
 `
 const CarouselCont = styled.div`
   position: relative;
-  padding-top: 4rem;
 `
 
 
@@ -76,6 +83,11 @@ export default ()=> {
       <HeroInfoCont>
           <Row>
             <Col xs={12} md={6}>
+              <HeroImageContainer>
+                <HeroImage src={state.about.banner.image} />
+              </HeroImageContainer>
+            </Col>            
+            <Col xs={12} md={6}>
               <DescriptionCont>
                 <Title>
                   {state.about.banner.title}
@@ -83,25 +95,20 @@ export default ()=> {
                 <Description>
                   {state.about.banner.subTitle}
                 </Description>
-                <Button block>
+                <Button block rounded>
                   {state.about.banner.buttonText}
                 </Button>
               </DescriptionCont>
             </Col>
-            <Hidden xs>
-              <Col md={6}>
-                <HeroImageContainer>
-                  <HeroImage src={state.about.banner.image} />
-                </HeroImageContainer>
-              </Col>
-            </Hidden>
           </Row>
       </HeroInfoCont>
-        <Row gutterWidth={128}>
-          <Col xs={12} md={6}>
-            <TitleService>Ofrecemos un servicio ajustado a las necesidades de cada cliente</TitleService>
+        <Row gutterWidth={32}>
+          <Col xs={12}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <TitleService>Ofrecemos un servicio ajustado a las necesidades de cada cliente</TitleService>
+            </div>
           </Col>
-          <Col xs={12} md={6}>
+          <Col xs={12}>
             <CarouselCont>
               <ServiceCarousel />
             </CarouselCont>

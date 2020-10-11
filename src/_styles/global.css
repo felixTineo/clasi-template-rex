@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
 html{
   font-size: 16px;
@@ -10,12 +10,15 @@ html{
 }
 
 body{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
   color: #212121;
 }
-
+button{
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 14px;
+}
 ul{
   list-style: none;
   padding: 0;
@@ -36,7 +39,7 @@ input, select{
 }
 
 h1, h2, h3, h4, h5, h6{
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 h1{
@@ -61,7 +64,7 @@ h2{
 }
 
 .carousel-back-button{
-  right: 190px;
+  right: 255px;
   background-color: transparent;
 }
 
@@ -101,16 +104,23 @@ h2{
   filter: brightness(.9);
 }
 .carousel-text-back-button{
-  top: auto;
-  bottom: 0 !important;
-  left: auto;
-  left: 0;
+  top: 35%;
+  left: -5%;
 }
 
 .carousel-text-next-button{
-  top: auto;
-  bottom: 0 !important;
-  left: 6rem;
+  top: 35%;
+  right: -5%;
+}
+
+.carousel-quote-back-button{
+  top: 55%;
+  left: 20%;
+}
+
+.carousel-quote-next-button{
+  top: 55%;
+  right: 20%;
 }
 
 .carousel-text-dot{
@@ -167,6 +177,6 @@ h2{
 }
 
 .clasi-icon path{
-  fill: #fff;
-  stroke: #fff;
+  //fill: #fff;
+  //stroke: #fff;
 }

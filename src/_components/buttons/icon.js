@@ -1,28 +1,31 @@
+import React from 'react';
 import styled from 'styled-components';
-import { hexToHsl } from '../../_util';
 
-export default styled.button`
-  min-width: 100%;
-  min-height: 44px;
-  //width: ${props => props.block && "100%"};
-  border: 1px solid #FFFFFF;
-  border-radius: 6px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  cursor: pointer;
+const Button = styled.button`
+  color: #fff;
+  outline: none;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background-color: transparent;
+  height: 44px;
+  width: 100%;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.primary ? props.theme.main.primaryColor : "transparent"};
-  border-color: ${props => props.primary ? props.theme.main.primaryColor : "#fff"};
-  color: #FFFFFF;
   transition: 250ms ease;
   &:hover{
-    background-color: ${props => props.primary ? hexToHsl(props.theme.main.primaryColor, 55) : "#fff" };
-    color: ${props => props.primary ? "#fff" : props.theme.main.primaryColor};
-  };
-  &:active{
-    background-color: ${props => props.primary ? hexToHsl(props.theme.main.primaryColor, 45) : hexToHsl("#ffffff", 90) };
-    color: ${props => props.primary ? "#fff" : props.theme.main.primaryColor};
-  }  
+    color: ${props => props.theme.main.primaryColor};
+    background-color: #fff;
+  }
 `
+
+export default (props) => {
+  const { icon: Icon, children } = props;
+  return(
+    <Button {...props}>
+      {children}
+      <Icon style={{ marginLeft: 8 }} />
+    </Button>
+  )
+}

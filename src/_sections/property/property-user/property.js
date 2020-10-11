@@ -9,11 +9,15 @@ const MainCont = styled.div`
   //border: 1px solid #EBEBEB;
   height: 100%;
   border-right: none;
-  background-color: ${props => props.theme.main.primaryColor};
+  //background-color: ${props => props.theme.main.primaryColor};
 `
 const PublicObs = styled.p`
   font-weight: bold;
   margin: 2rem 0;
+`
+
+const Title = styled.h2`
+  color: ${props => props.theme.main.primaryColor};
 `
 
 const CharsCont = styled.ul`
@@ -27,7 +31,7 @@ const CharItemLi = styled.li`
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 1rem;
-  color: #fff;
+  color: #002438;
 `
 
 const CharItem = ({ icon, name }) => {
@@ -49,7 +53,9 @@ export default ({ description })=> {
     <MainCont>
       <Row>
         <Col xs={12}>
-          <h2 style={{ color: "#fff" }}>Caracteristicas</h2>
+          <Title>
+            Caracteristicas
+          </Title>
           <Row>
             <Col xs={12} md={6}>
               <CharsCont>
@@ -68,7 +74,9 @@ export default ({ description })=> {
           </Row>
         </Col>
         <Col xs={12}>
-          <h2 style={{ color: "#fff" }}>Otros servicios</h2>
+          <Title>
+            Otros servicios
+          </Title>
           <Row>
             <Col xs={12} md={6}>
               <CharsCont>

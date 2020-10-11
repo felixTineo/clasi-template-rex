@@ -26,7 +26,7 @@ export default ()=> {
             </Title>
           </Col>
           <Col xs={3}>
-            <Button block primary>
+            <Button block primary rounded>
               Contactanos
             </Button>
           </Col>

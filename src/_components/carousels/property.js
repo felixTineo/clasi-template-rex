@@ -7,6 +7,7 @@ import { Visible, Hidden } from 'react-grid-system';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Dot } from 'pure-react-carousel';
 import { Row, Col } from 'react-grid-system';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import { v1 as uuid } from 'uuid';
 
 const SvgCont = styled.svg`
   fill: ${props => props.theme.main.primaryColor};
@@ -15,14 +16,14 @@ const SvgCont = styled.svg`
 export default ()=> {
   const color = useContext(Context).main.primaryColor;
   const items = useContext(Context).home.properties.items;
-  const itemsDesk = chunkArray(items.map(item => item), 4);
+  const itemsDesk = chunkArray(items.map(item => item), 3);
   console.log(itemsDesk.length);
   return(
     <Fragment>
       <Hidden xs>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={50}
+          naturalSlideHeight={44}
           //isIntrinsicHeight={true}
           totalSlides={itemsDesk.length}
           visibleSlides={1}
@@ -31,11 +32,11 @@ export default ()=> {
           <Slider>
             {
               itemsDesk.map((mainItem, index) => (
-                <Slide key={mainItem[index].id} index={index}>
+                <Slide key={uuid()} index={index}>
                   <Row style={{ margin: "0 1rem" }}>
                     {
                       mainItem.map(item => (
-                        <Col xs={1} xs={3}>
+                        <Col xs={1} xs={4}>
                           <PropertyCard {...item} />
                         </Col>
                       ))

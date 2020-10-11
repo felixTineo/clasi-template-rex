@@ -13,23 +13,29 @@ const Select = styled.select`
   border: none;
   outline: none;
   font-size: 1rem;
-  color: ${props => props.primary ? props.theme.main.primaryColor : "#212121"};
+  color: ${props => props.primary ? props.theme.main.primaryColor : "#fff"};
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; 
-  background-color: #fff;
-  border-radius: 6px;
+  border-radius: 20px;
   padding: 5px;
+  padding-left: 1rem;
   height: 44px;
   width: 100%;
-  background-image: url('/icons/chevron-select.svg');
+  background-color: transparent;
+  //background-image: ${props => props.primary ? "url('/icons/chevron-select-primary.svg')" : "url('/icons/chevron-select.svg')"};
+  background-image: ${props => props.primary
+  ? `url('data:image/svg+xml;utf8,<svg stroke="%23${props.theme.main.primaryColor.substring(1)}" width="28" height="6.633" fill="none" version="1.1" viewBox="0 0 28 6.633" xmlns="http://www.w3.org/2000/svg"><path d="m11.368 0.63261-5.3678 5.3678-5.3678-5.3678"/></svg>')`
+  : `url('data:image/svg+xml;utf8,<svg stroke="%23FFFFFF" width="28" height="6.633" fill="none" version="1.1" viewBox="0 0 28 6.633" xmlns="http://www.w3.org/2000/svg"><path d="m11.368 0.63261-5.3678 5.3678-5.3678-5.3678"/></svg>')`};
   background-repeat: no-repeat;
   background-position: right center;
   margin-bottom: 1rem;
-  color: #878787;
   cursor: pointer;
   //box-shadow: 0px 0px 1px rgba(0, 0, 0, .12), 0px 0px 2px rgba(0, 0, 0, .12), 0px 4px 4px rgba(0, 0, 0, .12), 0px 8px 8px rgba(0, 0, 0, .12);
   border: ${props => props.gray ? "1px solid #EBEBEB" : "none" };
+  border-style: solid;
+  border-width: 1px;
+  border-color: ${props => props.primary ? props.theme.main.primaryColor : "#fff"};
   &::-ms-expand{
     background: transparent;
   }  

@@ -18,7 +18,7 @@ const Title = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.5;
 `
 const Map = styled.img`
   width: 100%;
@@ -30,6 +30,7 @@ const Map = styled.img`
 export default ({ noContact })=> {
   const state = useContext(Context).about.ubication;
   return(
+    <Container>
     <MainCont>
       <Row nogutter>
         <Col xs={12} md={6}>
@@ -58,5 +59,6 @@ export default ({ noContact })=> {
         )
       }
     </MainCont>
+    </Container>
   )
 }

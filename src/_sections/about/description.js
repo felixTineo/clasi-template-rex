@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { DescCarousel } from '../../_components/carousels';
 
 const ImageContainer = styled.div`
-  background-color: ${props => props.theme.main.primaryColor};
+  //background-color: ${props => props.theme.main.primaryColor};
   @media(min-width: 768px){
     padding: 3rem 0;
   }
@@ -19,7 +19,7 @@ const Image = styled.img`
 `
 
 const Carousel = styled.div`
-  background-color: ${props => props.theme.main.primaryColor};
+  //background-color: ${props => props.theme.main.primaryColor};
   height: 100%;
   padding-bottom: 2rem;
   @media(min-width: 768px){
