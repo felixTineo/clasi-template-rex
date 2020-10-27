@@ -54,7 +54,7 @@ export default ({ description })=> {
       <Row>
         <Col xs={12}>
           <Title>
-            Caracteristicas
+            Características
           </Title>
           <Row>
             <Col xs={12} md={6}>
