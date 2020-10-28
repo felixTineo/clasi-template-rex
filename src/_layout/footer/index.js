@@ -174,18 +174,18 @@ export default ()=> {
                       Nosotros
                     </NavLink>
                   </Col>
-                  <Col xs={6} md={3}>
+                  <Col xs={6} md={4}>
                     <NavLink to="/properties">
                       Propiedades
                     </NavLink>                  
                   </Col>
-                  <Visible md xs xxl lg xl>
+                  {/* <Visible md xs xxl lg xl>
                     <Col xs={6} md={3}>
                       <NavLink to="/news">
                         Noticias
                       </NavLink>                  
                     </Col>
-                  </Visible>
+                  </Visible> */}
                   <Col xs={6} md={3}>
                     <NavLink to="/contact">
                       Contacto

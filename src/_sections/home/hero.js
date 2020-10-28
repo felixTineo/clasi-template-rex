@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import Context from '../../_context';
-import { SearchForm } from '../../_components/forms'
+import { SearchForm, FormCode } from '../../_components/forms'
 import { Container, Row, Col, Hidden } from 'react-grid-system';
 import { DownCircleFilled } from '@ant-design/icons';
 
@@ -98,7 +98,15 @@ export default ()=> {
           </Hidden>
         </Row>
       </Container>
-        <SearchForm />
+      {
+        searchByCode
+        ?(
+          <FormCode />
+        )
+        :(
+          <SearchForm />
+        )
+      }
     </MainCont>
   )
 }
