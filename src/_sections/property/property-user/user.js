@@ -70,7 +70,7 @@ export default ({ description })=> {
         <Avatar src={user.avatar} alt={user.lastName} />
         <UserInfoCont>
           <UserInfoItem>
-            {`${user.firstName} ${user.lastName} - ${user.jobTitle}`}
+            {`${user.firstName} ${user.lastName} - ${user.position}`}
           </UserInfoItem>
           <UserInfoItem>
             {user.phone && user.phone.countryCode + " " + user.phone.areaCode + " " + user.phone.phoneNumber}
