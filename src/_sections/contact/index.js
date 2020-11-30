@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import context from '../../_context/';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
 import { Input, Textarea } from '../../_components/inputs';
 import { Button } from '../../_components/buttons';
+import Map from '../../_components/map';
 
 const MainCont = styled.div`
   min-height: 80vh;
@@ -62,12 +64,9 @@ const ButtonContainer = styled.div`
     justify-content: flex-end;
   }   
 `
-const Map = styled.img`
-  width: 100%;
-`
 
 export default ()=> {
-
+  const { lat, lng } = useContext(context).office;
   return(
     <Container>
       <MainCont>
@@ -111,10 +110,7 @@ export default ()=> {
                     vertical  
                   />                  
                 </Col>
-                <Col xs={12} md={6}>
-                  <ImgCaptcha src="/captcha.png" alt="no soy un robot" />
-                </Col>
-                <Col xs={12} md={6}>
+                <Col xs={12} md={12}>
                   <ButtonContainer>
                     <Button block rounded>Enviar</Button>
                   </ButtonContainer>                  
@@ -123,7 +119,16 @@ export default ()=> {
             </Form >                                   
           </Col>
           <Col xs={12} md={6}>
-            <Map src="/square-map.png" />
+          {
+            lat && (
+              <Map
+              lat={parseFloat(lat)}
+              lng={parseFloat(lng)}
+              height={"calc(100% - (5rem + 19px))"}
+              zoom={3}
+            />         
+            )
+          } 
             <SubTitle>
               Envienos un mensaje y uno de nuestros asesores se pondra en contacto a la brevedad
             </SubTitle>

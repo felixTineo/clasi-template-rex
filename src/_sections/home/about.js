@@ -78,6 +78,7 @@ const CarouselCont = styled.div`
 
 export default ()=> {
   const state = useContext(Context).home;
+  const builderId = useContext(Context).builderId;
   return(
     <Container>
     <MainCont>
@@ -96,7 +97,7 @@ export default ()=> {
                 <Description>
                   {state.about.banner.subTitle}
                 </Description>
-                <Button block rounded onClick={()=> navigate("/about")}>
+                <Button block rounded onClick={()=> navigate(`/about?builderId=${builderId}`)}>
                   {state.about.banner.buttonText}
                 </Button>
               </DescriptionCont>

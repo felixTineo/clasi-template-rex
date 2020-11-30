@@ -138,6 +138,7 @@ const BackTop = styled.button`
 export default ()=> {
   const office = useContext(Context).office;
   const state = useContext(Context);
+  const builderId = state.builderId;
   const handleTop = ()=> window.scrollTo(0, 0);
   return(
     <Footer>
@@ -145,11 +146,11 @@ export default ()=> {
         <Container>
           <Row>
             <Col xs={12} md={4}>
-              <GatsbyLink to="/" style={{ textDecoration: 'none' }}>
+              <GatsbyLink to={`/?builderId=${builderId}`} style={{ textDecoration: 'none' }}>
                 <LogoCont>
                   {
                     state.main.logo.isImage
-                      ?<Logo src="/logo.svg" alt="logo" />
+                      ?<Logo src={state.main.logo.value} alt="logo" />
                       :<HeaderTitle>{state.main.logo.value}</HeaderTitle>
                   }
                 </LogoCont>                        
@@ -159,7 +160,7 @@ export default ()=> {
                   {office.address}
                 </OfficeInfo>
                 <OfficeInfo>
-                  {`(${office.phone.countryCode}-${office.phone.areaCode}) ${office.phone.phoneNumber} / (${office.mobile.countryCode}-${office.mobile.areaCode}) ${office.mobile.phoneNumber}`}
+                  {office.phone}
                 </OfficeInfo>
                 <OfficeInfo>
                   {office.email}
@@ -170,12 +171,12 @@ export default ()=> {
               <NavCont>
                 <Row>
                   <Col xs={6} md={3}>
-                    <NavLink to="/about">
+                    <NavLink to={`/about?builderId=${builderId}`}>
                       Nosotros
                     </NavLink>
                   </Col>
                   <Col xs={6} md={4}>
-                    <NavLink to="/properties">
+                    <NavLink to={`/properties?builderId=${builderId}`}>
                       Propiedades
                     </NavLink>                  
                   </Col>
@@ -187,7 +188,7 @@ export default ()=> {
                     </Col>
                   </Visible> */}
                   <Col xs={6} md={3}>
-                    <NavLink to="/contact">
+                    <NavLink to={`/contact?builderId=${builderId}`}>
                       Contacto
                     </NavLink>                  
                   </Col>                                          

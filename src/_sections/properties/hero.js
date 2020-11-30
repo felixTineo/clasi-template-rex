@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
-import { SearchForm } from '../../_components/forms';
+import { SearchForm, FormCode } from '../../_components/forms';
 import { Input, Select } from '../../_components/inputs';
 import { Button } from '../../_components/buttons';
 import { useWindowSize } from '../../_hooks';
@@ -104,7 +104,11 @@ export default ()=> {
       </Container>
       <Row align="center">
         <Col xs={12}>
-          <SearchForm property />
+          {
+            searchByCode
+            ? <FormCode />
+            :<SearchForm property />
+          }
         </Col>
 {/*          <Col xs={12} md={2}>
             <ButtonFilter onClick={()=> setFilter(!filter)}>

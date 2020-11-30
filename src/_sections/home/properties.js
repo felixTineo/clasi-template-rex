@@ -25,6 +25,7 @@ const Title = styled.h2`
 
 export default ({ noMargin })=> {
   const state = useContext(Context).home.properties;
+  const builderId = useContext(Context).builderId;
   return(
     <MainCont id="properties" noMargin={noMargin}>
       <Container>
@@ -42,7 +43,7 @@ export default ({ noMargin })=> {
               image={state.bannerImage}
               buttonText={state.buttonText}
               title={state.footer}
-              onClick={()=> navigate("/properties")}
+              onClick={()=> navigate(`/properties?builderId=${builderId}`)}
               //icon="/icons/marker.svg"
             />
           </Col>

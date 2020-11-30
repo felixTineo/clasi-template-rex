@@ -76,8 +76,8 @@ export default ()=> {
       <Hidden xs>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={25}
-          //isIntrinsicHeight={true}
+          //naturalSlideHeight={25}
+          isIntrinsicHeight={true}
           totalSlides={itemsDesk.length}
           visibleSlides={1}
           orientation="horizontal"
@@ -97,16 +97,22 @@ export default ()=> {
               ))
             }
           </Slider>
-          <ButtonBack className="carousel-back-button carousel-text-back-button" style={{ backgroundColor: color }}>
-            <SvgCont width="8" height="14" fill="none" version="1.1" viewBox="0 0 8 14" xmlns="http://www.w3.org/2000/svg">
-              <path d="m0.28783 6.3069 6.0345-6.0196c0.38387-0.38312 1.0062-0.38312 1.3899 0 0.38371 0.38278 0.38371 1.0036 0 1.3863l-5.3396 5.3264 5.3394 5.3262c0.38371 0.383 0.38371 1.0037 0 1.3865-0.38371 0.3829-1.006 0.3829-1.3899 0l-6.0345-6.0197c-0.19186-0.19148-0.28767-0.44217-0.28767-0.69299 0-0.25094 0.096005-0.50181 0.28783-0.6932z"/>
-            </SvgCont>
-          </ButtonBack>
-          <ButtonNext className="carousel-next-button carousel-text-next-button" style={{ backgroundColor: color }}>
-            <SvgCont width="8" height="14" fill="none" version="1.1" viewBox="0 0 8 14" xmlns="http://www.w3.org/2000/svg">
-              <path d="m7.7122 7.6931-6.0345 6.0196c-0.38387 0.3831-1.0062 0.3831-1.3899 0-0.38371-0.3828-0.38371-1.0036 0-1.3864l5.3396-5.3264-5.3394-5.3262c-0.38371-0.38293-0.38371-1.0037 0-1.3865 0.38371-0.38293 1.0061-0.38293 1.3899 0l6.0345 6.0197c0.19185 0.19148 0.28767 0.44217 0.28767 0.69299 0 0.25094-0.096 0.50181-0.28783 0.6932z"/>
-            </SvgCont>
-          </ButtonNext>
+          {
+            itemsDesk.length >1 &&(
+              <Fragment>
+                <ButtonBack className="carousel-back-button carousel-text-back-button" style={{ backgroundColor: color }}>
+                  <SvgCont width="8" height="14" fill="none" version="1.1" viewBox="0 0 8 14" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m0.28783 6.3069 6.0345-6.0196c0.38387-0.38312 1.0062-0.38312 1.3899 0 0.38371 0.38278 0.38371 1.0036 0 1.3863l-5.3396 5.3264 5.3394 5.3262c0.38371 0.383 0.38371 1.0037 0 1.3865-0.38371 0.3829-1.006 0.3829-1.3899 0l-6.0345-6.0197c-0.19186-0.19148-0.28767-0.44217-0.28767-0.69299 0-0.25094 0.096005-0.50181 0.28783-0.6932z"/>
+                  </SvgCont>
+                </ButtonBack>
+                <ButtonNext className="carousel-next-button carousel-text-next-button" style={{ backgroundColor: color }}>
+                  <SvgCont width="8" height="14" fill="none" version="1.1" viewBox="0 0 8 14" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m7.7122 7.6931-6.0345 6.0196c-0.38387 0.3831-1.0062 0.3831-1.3899 0-0.38371-0.3828-0.38371-1.0036 0-1.3864l5.3396-5.3264-5.3394-5.3262c-0.38371-0.38293-0.38371-1.0037 0-1.3865 0.38371-0.38293 1.0061-0.38293 1.3899 0l6.0345 6.0197c0.19185 0.19148 0.28767 0.44217 0.28767 0.69299 0 0.25094-0.096 0.50181-0.28783 0.6932z"/>
+                  </SvgCont>
+                </ButtonNext>
+              </Fragment>
+            )
+          }
         </CarouselProvider>
       </Hidden>
       <Visible xs>

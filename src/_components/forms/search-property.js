@@ -1,9 +1,13 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import styled from 'styled-components';
-import { Select, Input } from '../inputs';
+import { Select, Input, Autocomplete } from '../inputs';
 import { Container, Row, Col, Hidden } from 'react-grid-system';
 import { IconButton, Button } from '../buttons'
 import { SearchOutlined, PlusCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { useNavigateForm } from '../../_hooks';
+import PROPERTY_TYPE from '../../_constants/PROPERTY_TYPE.json';
+import COMMUNES from '../../_constants/CITIES.json';
+import { getSearchParams } from 'gatsby-query-params';
 
 const Form = styled.form`
   background-color: ${props => props.theme.main.primaryColor};
@@ -28,32 +32,58 @@ const FormSelectButton = styled.button`
 
 export default ({ property }) => {
   const [filter, setFilter] = useState(false);
+  const { values, onChange, onFinish, setInitial } = useNavigateForm({
+    propertyType: '',
+    operation: '',
+    commune: '',
+    priceMin: '',
+    priceMax: '',
+    bedrooms: '',
+    bathrooms: '',
+    currency: '',
+  });
+  const params = getSearchParams();  
+
+  useEffect(()=>{
+    if(params){
+      setInitial({...params });
+    }
+  },[params]);
   return(
     <Fragment>
-      {console.log("IS PROPERTY", property)}
-      <Form onSubmit={e=> e.preventDefault()}>
+      <Form onSubmit={e=> { e.preventDefault(); onFinish(); }}>
         <Container>
           <Row>
-            <Col xs={12} md={3}>
+            <Col xs={12} md={3}>         
               <Select
+                id="operation"
+                onChange={onChange}        
+                value={values.operation}          
                 default="Operación"
-                options={["opcion 1", "opcion 2", "opcion 3"]}
+                options={["VENTA", "ARRIENDO"]}
                 gray
-                vertical={false}
-              />          
+                capitalize
+              />              
             </Col>
             <Col xs={12} md={3}>
               <Select
+                id="propertyType"
+                onChange={onChange}
+                value={values.propertyType}
                 default="Propiedad"
-                options={["opcion 1", "opcion 2", "opcion 3"]}
+                options={PROPERTY_TYPE}
                 gray
-                vertical={false}
-              />          
+                capitalize
+              />                   
             </Col>        
             <Col xs={12} md={3}>
-              <Input
-                placeholder="Comuna"
-              />        
+            <Autocomplete
+              id="commune"
+              onSelect={onChange}
+              selected={values.commune}
+              options={COMMUNES.map(val => val.name)}
+              placeholder="Comuna"
+            />
             </Col>            
             <Col xs={12} md={3}>
               <IconButton
@@ -71,34 +101,59 @@ export default ({ property }) => {
             <Filters>
               <Row>
                 <Col xs={12} md={2}>
-                  <Input placeholder="Desde" primary />
-                </Col>
-                <Col xs={12} md={2}>
-                  <Input placeholder="Desde" primary />
-                </Col>
-                <Col xs={12} md={2}>
-                  <Select
-                    default="Dormitorios"
-                    options={["opcion 1", "opcion 2", "opcion 3"]}
+                  <Input
+                    id="priceMin"
+                    value={values.priceMin}
+                    onChange={onChange}
+                    type="number"
+                    min={0}
+                    placeholder="Desde"
                     primary
-                    vertical={false}
+                  />                  
+                </Col>
+                <Col xs={12} md={2}>
+                  <Input
+                    id="priceMax"
+                    value={values.priceMax}
+                    onChange={onChange}
+                    type="number"
+                    min={0}                
+                    placeholder="Hasta"
+                    primary
+                  />    
+                </Col>
+                <Col xs={12} md={2}>
+                  <Input
+                    id="bedrooms"
+                    value={values.bedrooms}
+                    onChange={onChange}
+                    type="number"
+                    min={0}                
+                    placeholder="Habitaciones"
+                    primary
+                  />         
+                </Col>
+                <Col xs={12} md={2}>
+                  <Input
+                    id="bathrooms"
+                    value={values.bathrooms}
+                    onChange={onChange}
+                    type="number"
+                    min={0}                
+                    placeholder="Baños"
+                    primary
                   />         
                 </Col>
                 <Col xs={12} md={2}>
                   <Select
-                    default="Baños"
-                    options={["opcion 1", "opcion 2", "opcion 3"]}
-                    primary
-                    vertical={false}
-                  />         
-                </Col>
-                <Col xs={12} md={2}>
-                  <Select
+                    id="currency"
+                    value={values.currency}
+                    onChange={onChange}
                     default="Divisa"
-                    options={["opcion 1", "opcion 2", "opcion 3"]}
+                    options={["CLP", "UF"]}
+                    gray
                     primary
-                    vertical={false}
-                  />         
+                  />                     
                 </Col>
                 <Col xs={12} md={2}>
                   <Button block primary rounded>

@@ -60,9 +60,9 @@ const ContactFormButtons = styled.div`
   margin-top: 1rem;
 `
 
-export default ()=> {
-  const description = useContext(Context).singleProperty;
-  const user = description.relatedUser;
+export default ({ description })=> {
+  //const description = useContext(Context).singleProperty;
+  const user = { ...description._comercialUser[0], ...description._comercialUser_person[0] };
 
   return(
     <MainCont>
@@ -73,7 +73,7 @@ export default ()=> {
             {`${user.firstName} ${user.lastName} - ${user.jobTitle}`}
           </UserInfoItem>
           <UserInfoItem>
-            {user.phone}
+            {user.phone && user.phone.countryCode + " " + user.phone.areaCode + " " + user.phone.phoneNumber}
           </UserInfoItem>
           <UserInfoItem>
             {user.email}

@@ -5,7 +5,7 @@ import './index.css'
 
 export default ({ images })=> {
   console.log(images);
-  const gallery = images.map(item => ({ original: item, thumbnail: item }));
+  const gallery = images.map(item => ({ original: item.url, thumbnail: item.url }));
   return(
     <ImageGallery
       items={gallery}

@@ -1,6 +1,9 @@
 var plugins = [{
       plugin: require('/home/felix/Documentos/projects/clasi-templates/rex/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
       options: {"plugins":[],"displayName":false},
+    },{
+      plugin: require('/home/felix/Documentos/projects/clasi-templates/rex/node_modules/gatsby-plugin-react-leaflet/gatsby-ssr'),
+      options: {"plugins":[],"linkStyles":true},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [

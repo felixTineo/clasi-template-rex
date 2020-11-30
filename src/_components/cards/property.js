@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import context from '../../_context';
 import styled from 'styled-components';
 import Link from '../link';
+import { truncate } from '../../_util';
 
 const Card = styled.div`
-  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(${props => props.src});
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("${props => props.src}");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -55,24 +57,27 @@ export default ({
   title,
   value,
   code,
+  currency,
   ubication,
   characteristics,  
+  _id
 })=> {
+  const builderId = useContext(context).builderId;
   return(
-    <Link to="/property" title="Ver propiedad">
+    <Link to={`/property?builderId=${builderId}&propertyId=${_id}`} title="Ver propiedad">
       <Card src={mainImage}>
         <Header>{operation}</Header>
         <Body />
         <Footer>
           <Title>
-            {title}
+            {truncate(title, 30)}
           </Title>
           <Title>
-            UF {value}
+            {`${currency} ${value}`}
           </Title>
           <InfoContainer>
             <li>
-              {ubication.address}
+              {truncate(ubication.address, 50)}
             </li>
             {
               characteristics.map(char => (
