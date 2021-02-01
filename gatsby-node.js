@@ -303,7 +303,7 @@ exports.sourceNodes = async ({
 }) => {
   // get data from GitHub API at build time
   const builderId = process.env.BUILDER_ID;
-  console.log("BUILDER ID",builderId)
+  console.log("BUILDER ID",builderId);
   const data = await fetch(`https://api.clasihome.com/rest/builders?builderId=${builderId}`);
   const result = await data.json();
   /*let propertiesUrl = `https://api.clasihome.com/rest/properties?id=${result.user ? result.user : result.office }&typeId=${result.user ? "user" : "office"}&status=PUBLICADA&limit=6`;

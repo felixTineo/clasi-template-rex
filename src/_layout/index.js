@@ -4,8 +4,7 @@ import Context from '../_context';
 import styled, { ThemeProvider } from 'styled-components';
 import Header from './header';
 import Footer from './footer';
-import { useLayout } from '../_hooks';
-import LoaderScreen from '../_components/LoaderScreen';
+import { Helmet } from "react-helmet";
 
 const Layout = styled.div`
   overflow: hidden;
@@ -20,17 +19,18 @@ const Body = styled.div`
   }
 `
 
-export default ({ children })=> {
-
-  const { loading, data, error } = useLayout();
-
-  if(loading) return <LoaderScreen />
-  if(error) return <p>error de conexión</p>
+export default ({ children, data })=> {
 
   return(
     <Context.Provider value={data}>
       <ThemeProvider theme={data}>
         <Layout>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <meta name="description" content="Tenemos excelentes propiedades pensadas para ti." />
+            <title>Clasihome | Propiedades </title>
+            <link rel="canonical" href="http://clasihome.com" />
+          </Helmet>           
           <Header />
           <Body>
             {children}

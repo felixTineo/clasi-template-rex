@@ -13,9 +13,8 @@ const SvgCont = styled.svg`
   fill: ${props => props.theme.main.primaryColor};
 `
 
-export default ()=> {
+export default ({ items })=> {
   const color = useContext(Context).main.primaryColor;
-  const items = useContext(Context).home.properties.items;
   const itemsDesk = chunkArray(items.map(item => item), 3);
   console.log(itemsDesk.length);
   return(
@@ -23,7 +22,7 @@ export default ()=> {
       <Hidden xs>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={44}
+          naturalSlideHeight={50}
           //isIntrinsicHeight={true}
           totalSlides={itemsDesk.length}
           visibleSlides={1}

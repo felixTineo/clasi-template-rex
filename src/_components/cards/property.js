@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import context from '../../_context';
 import styled from 'styled-components';
 import Link from '../link';
-import { truncate } from '../../_util';
+import { truncate, priceFormat } from '../../_util';
 
 const Card = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("${props => props.src}");
@@ -10,7 +10,7 @@ const Card = styled.div`
   background-position: center center;
   background-size: cover;
   width: 100%;
-  height: 406px;
+  height: 450px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -22,8 +22,7 @@ const Card = styled.div`
                 0px 4px 4px rgba(0, 0, 0, .12),
                 0px 8px 8px rgba(0, 0, 0, .12),
                 0px 16px 16px rgba(0, 0, 0, .12),
-                0px 32px 32px rgba(0, 0, 0, .12),
-                0px 64px 64px rgba(0, 0, 0, .12);
+                0px 32px 32px rgba(0, 0, 0, .12);
   }  
 `
 const Header = styled.header`
@@ -49,6 +48,17 @@ const InfoContainer = styled.ul`
   margin: 0;
   font-weight: lighter;
 `
+const CharItem = styled.li`
+  margin: .5rem 0;
+  display: flex;
+  align-items: center;
+  span{
+    //margin-left: .5rem;
+  }
+  img{
+    width: 20px;
+  }
+`
 
 
 export default ({
@@ -70,20 +80,35 @@ export default ({
         <Body />
         <Footer>
           <Title>
-            {truncate(title, 30)}
+            {truncate(title, 50)}
           </Title>
           <Title>
-            {`${currency} ${value}`}
+            {currency} {currency !== "UF" && "$"}{priceFormat(value)}
           </Title>
           <InfoContainer>
-            <li>
-              {truncate(ubication.address, 50)}
-            </li>
-            {
-              characteristics.map(char => (
-                <li>{`${char.name} ${char.value}`}</li>
-              ))
-            }
+            <CharItem>
+              {truncate(ubication.commune, 50)}
+            </CharItem>
+          {
+            characteristics.filter(char => (
+              char.name === "Superficie total" ||
+              char.name === "Superficie útil" ||
+              char.name === "Habitaciones" ||
+              char.name === "Baños" ||
+              char.name === "Estacionamientos"
+
+            ) ).map((char, index) => (
+              <CharItem key={index}>
+                {/*
+                  char.name === "Superficie total" && <img src="/icons/surface.svg" /> ||
+                  char.name === "Superficie útil" && <img src="/icons/surface.svg" />  ||
+                  char.name === "Habitaciones" && <img src="/icons/rooms.svg" /> ||
+                  char.name === "Baños" && <img src="/icons/bath.svg" />
+                */}
+                <span>{char.name} {char.value} {char.name === "Superficie total" && "mt2" || char.name === "Superficie útil" && "mt2"}</span>
+              </CharItem>
+            ))
+          }
           </InfoContainer>
         </Footer>
       </Card>

@@ -1,6 +1,12 @@
 var plugins = [{
+      plugin: require('/home/felix/Documentos/projects/clasi-templates/rex/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      options: {"plugins":[]},
+    },{
+      plugin: require('/home/felix/Documentos/projects/clasi-templates/rex/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
+      options: {"plugins":[],"name":"Elephant - inmobiliaria","short_name":"elephant","lang":"es","start_url":"/","icon":"static/favicon.ico","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"0e1824c53dae7c47acc7bcd5395f29eb"},
+    },{
       plugin: require('/home/felix/Documentos/projects/clasi-templates/rex/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
-      options: {"plugins":[],"displayName":false},
+      options: {"plugins":[],"displayName":false,"fileName":true,"minify":true,"transpileTemplateLiterals":true,"pure":false},
     },{
       plugin: require('/home/felix/Documentos/projects/clasi-templates/rex/node_modules/gatsby-plugin-react-leaflet/gatsby-ssr'),
       options: {"plugins":[],"linkStyles":true},

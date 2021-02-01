@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import { useQueryParam } from 'gatsby-query-params';
 import { urlBuilder } from '../_util';
 import { LoadingOutlined, FrownOutlined } from '@ant-design/icons';
+import { graphql } from 'gatsby';
 
 const StandCont = styled.div`
   min-height: 50vh;
@@ -22,22 +23,22 @@ const StandCont = styled.div`
   color: ${props => props.loading && props.theme.main.primaryColor};
 `
 
-export default ()=>{
+export default ({ data })=>{
   const propertyId = useQueryParam('propertyId');
   const [query, setQuery] = useReducer((current, next) => ({ ...current, ...next }),{
     loading: true,
     error: false,
-    data: null,
+    dataQuery: null,
   });
 
   const getProperty = useCallback(async()=> {
     try{
       const url = urlBuilder('https://api.clasihome.com/rest/properties', { propertyId });
-      const data = await fetch(url);
-      const result = await data.json();
+      const dataQuery = await fetch(url);
+      const result = await dataQuery.json();
       console.log("PROPETY URL", url);
-      console.log("#PROPERTY DATA", result);
-      setQuery({ loading: false, data: result });
+      console.log("#PROPERTY dataQuery", result);
+      setQuery({ loading: false, dataQuery: result });
     }catch(e){
       console.log(e);
       setQuery({ loading: false, error: true });
@@ -50,10 +51,10 @@ export default ()=>{
     }
   },[propertyId])
 
-  const { data, loading, error } = query;
+  const { dataQuery, loading, error } = query;
   
   if(loading) return (
-    <Layout>
+    <Layout data={JSON.parse(data.initial.data)}>
       <StandCont loading>
         <LoadingOutlined />
         <p>Cargando...</p>
@@ -61,7 +62,7 @@ export default ()=>{
     </Layout>
   )
   if(error) return (
-    <Layout>
+    <Layout data={JSON.parse(data.initial.data)}>
       <StandCont>
         <FrownOutlined />
         <p>Error de conexión</p>
@@ -70,17 +71,17 @@ export default ()=>{
   );
 
   return(
-    <Layout>
-      <Hero state={data} />
-      <Interaction description={data} />
-      <PropertyUser state={data} />
-      <Ubication coordinates={data.ubication.location.coordinates}/>
+    <Layout data={JSON.parse(data.initial.data)}>
+      <Hero state={dataQuery} />
+      <Interaction description={dataQuery} />
+      <PropertyUser state={dataQuery} />
+      <Ubication coordinates={dataQuery.ubication.location.coordinates}/>
       <Properties noMargin />
       <Visible xs>
         <Container>
           <Row>
             <Col xs={12}>
-              <Contact description={data} />
+              <Contact description={dataQuery} />
             </Col>
           </Row>
         </Container>
@@ -88,3 +89,11 @@ export default ()=>{
     </Layout>
   )
 }
+
+export const query = graphql`
+query{
+  initial{
+    data
+  }
+}
+`

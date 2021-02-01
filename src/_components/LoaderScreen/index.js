@@ -121,7 +121,7 @@ const LoaderScreen = () => {
               fill="transparent"
               stroke="url(#linear)"
               strokeWidth="4"
-              clip-path="url(#b)"
+              clipPath="url(#b)"
               xlinkHref="#a"
             />
             <motion.path
@@ -301,8 +301,8 @@ const LoaderScreen = () => {
                 transform="translate(181.204 38.213)"
                 fill="#fff"
                 stroke="rgba(0,0,0,0)"
-                stroke-miterlimit="10"
-                stroke-width="1"
+                strokeMiterlimit="10"
+                strokeWidth="1"
               />
               <path
                 id="Path-8"
