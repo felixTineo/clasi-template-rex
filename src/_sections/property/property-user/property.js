@@ -13,6 +13,7 @@ const MainCont = styled.div`
 const PublicObs = styled.p`
   font-weight: bold;
   margin: 2rem 0;
+  white-space: pre-line;
 `
 
 const Title = styled.h2`
@@ -28,17 +29,22 @@ const CharsCont = styled.ul`
 const CharItemLi = styled.li`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  max-width: 12rem;
   margin-bottom: 1rem;
   color: #002438;
+  font-size: .8rem;
 `
 
-const CharItem = ({ icon, name }) => {
+const CharItem = ({ icon, name, value }) => {
   const Icon = Icons[icon];
   return(
     <CharItemLi>
+      <div>
       <Icon className="clasi-icon" />
       <span style={{ marginLeft: 16 }}>{name}</span>
+      </div>
+      <span style={{ marginLeft: 16 }}>{value}</span>
     </CharItemLi>
   )
 }
@@ -51,6 +57,11 @@ export default ({ description })=> {
   return(
     <MainCont>
       <Row>
+      <Col xs={12}>
+        <PublicObs>
+          {description.publicObservations}
+        </PublicObs>
+      </Col>
         <Col xs={12}>
           <Title>
             Características

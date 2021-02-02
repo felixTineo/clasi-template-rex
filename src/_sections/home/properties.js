@@ -32,7 +32,8 @@ export default ({ noMargin })=> {
   useEffect(()=>{
     (async()=>{
       try{
-        const data = await fetch(`https://api.clasihome.com/rest/properties?id=${office.id}&typeId=${office.typeId}&status=PUBLICADA&limit=9&integration=WEB&featured=true`);
+        //const data = await fetch(`https://api.clasihome.com/rest/properties?id=${office.id}&typeId=${office.typeId}&status=PUBLICADA&limit=9&integration=WEB&featured=true`);
+        const data = await fetch(`https://api.clasihome.com/rest/properties?id=${office.id}&typeId=${office.typeId}&status=PUBLICADA&limit=9`);
         const result = await data.json();
         console.log("ITEMS ITEMS ITEMS", result.properties);
         setItems(result.properties);

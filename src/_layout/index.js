@@ -28,8 +28,8 @@ export default ({ children, data })=> {
           <Helmet>
             <meta charSet="utf-8" />
             <meta name="description" content="Tenemos excelentes propiedades pensadas para ti." />
-            <title>Clasihome | Propiedades </title>
-            <link rel="canonical" href="http://clasihome.com" />
+            <title>C & P Propiedades </title>
+            <link rel="canonical" href="http://cruzpuelmapropiedades.cl/" />
           </Helmet>           
           <Header />
           <Body>

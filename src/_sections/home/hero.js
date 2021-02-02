@@ -92,8 +92,9 @@ export default ()=> {
             </TitleContainer>
           </Col>
           <Hidden xs>
-            <Col xs={12} md={7}>
-              <HeroImage src="/hero.jpg" />
+            {console.log("STATE STATE", state)}
+            <Col xs={12} md={7} style={{ minHeight: "calc(70vh - 191px)" }}>
+              <HeroImage src={state.home.hero.background} />
             </Col>          
           </Hidden>
         </Row>

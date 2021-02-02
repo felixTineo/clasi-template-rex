@@ -4,6 +4,7 @@ import { Row, Col, Visible } from 'react-grid-system';
 import InteractionButtons from '../interaction-buttons';
 import { truncate } from '../../../_util';
 import { EnvironmentOutlined } from '@ant-design/icons';
+import { priceFormat } from '../../../_util';
 
 const MainCont = styled.div`
   //background-color: #fff;
@@ -67,7 +68,7 @@ export default ({ description })=> {
             {truncate(description.title, 70)}
           </Title>
           <Price>
-            {`${description.currency} ${description.value}`}
+            {`${description.currency} ${priceFormat(description.value)}`}
           </Price>
           <UbicationCont>
             <OperationCode>

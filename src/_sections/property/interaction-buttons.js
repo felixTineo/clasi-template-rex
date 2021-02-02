@@ -20,7 +20,7 @@ const PublicObs = styled.p`
 export default ({ description })=> {
   return(
     <Container>
-      <Row align="center" nogutter>
+      <Row nogutter>
         <Col xs={12} md={6} push={{ md: 6 }}>
           <Row>
             <Col xs={12} md={6}>
@@ -46,12 +46,7 @@ export default ({ description })=> {
               </Button>            
             </Col>          
           </Row>
-        </Col>      
-        <Col xs={12} md={6} pull={{ md: 6 }}>
-          <PublicObs>
-            {description.publicObservations}              
-          </PublicObs>
-        </Col>        
+        </Col>            
       </Row>
     </Container>  
   )
