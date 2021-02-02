@@ -60,7 +60,7 @@ export default ({ noMargin })=> {
               image={state.bannerImage}
               buttonText={state.buttonText}
               title={state.footer}
-              onClick={()=> navigate(`/properties?builderId=${builderId}`)}
+              onClick={()=> navigate(`/properties`)}
               //icon="/icons/marker.svg"
             />
           </Col>

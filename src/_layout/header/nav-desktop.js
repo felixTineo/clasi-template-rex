@@ -50,7 +50,7 @@ const LoginButton = styled.a`
   align-items: center;
   color: ${props => props.theme.main.primaryColor};
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 20px;
   cursor: pointer;
   &:visited{
     color: ${props => props.theme.main.primaryColor};

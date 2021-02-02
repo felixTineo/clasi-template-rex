@@ -47,7 +47,7 @@ export default ({ noMargin })=> {
               </Col>
               <Col xs={12} md={4}>
                 <ButtonCont>
-                  <Button block rounded primary onClick={()=> navigate(`/contact?builderId=${builderId}`)}>
+                  <Button block rounded primary onClick={()=> navigate(`/contact`)}>
                     Contáctanos
                   </Button>
                 </ButtonCont>

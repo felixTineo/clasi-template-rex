@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useReducer } from 'react';
 import Context from '../../../_context';
 import styled from 'styled-components';
 import { Row, Col } from 'react-grid-system';
-import { Input } from '../../../_components/inputs';
-import { Button, IconButton } from '../../../_components/buttons';
+import { Input, Textarea } from '../../../_components/inputs';
+import { Button,  } from '../../../_components/buttons';
+import { PlusCircleOutlined} from '@ant-design/icons';
 
 const MainCont = styled.div`
   padding: 4rem;
@@ -82,10 +83,32 @@ const ContactForm = styled.form`
 const ContactFormButtons = styled.div`
   margin-top: 1rem;
 `
+const IconButton = styled.a`
+  color: rgba(255, 255, 255, .7);
+  transition: 250ms ease;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-top: 2rem;
+  cursor: pointer;
+  &:visited{
+    color: rgba(255, 255, 255, .7);
+  }  
+  &:hover{
+    color: #fff;
+  }
+`
 
 export default ({ description })=> {
   //const description = useContext(Context).singleProperty;
+  const office = useContext(Context).office;
   const user = { ...description._comercialUser[0], ...description._comercialUser_person[0] };
+  const [message, setMessage] = useReducer((current, next) => ({ ...current, ...next }),{
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+  });
 
   return(
     <MainCont>
@@ -109,6 +132,9 @@ export default ({ description })=> {
             {user.phone && user.phone.countryCode + " " + user.phone.areaCode + " " + user.phone.phoneNumber}
           </UserInfoItem>
           <UserInfoItem>
+            { user.mobile && `${user.mobile.countryCode} ${user.mobile.areaCode} ${user.mobile.phoneNumber}`}
+          </UserInfoItem>                  
+          <UserInfoItem>
             {user.email}
           </UserInfoItem>
         </UserInfoCont>
@@ -123,6 +149,8 @@ export default ({ description })=> {
               gray
               id="name"
               vertical
+              value={message.name}
+              onChange={e => setMessage({ [e.target.id]: e.target.value })} 
             />
           </Col>
           <Col xs={12}>
@@ -131,6 +159,8 @@ export default ({ description })=> {
               gray
               id="phone"
               vertical
+              value={message.phone}
+              onChange={e => setMessage({ [e.target.id]: e.target.value })}                
             />
           </Col>
           <Col xs={12}>
@@ -139,14 +169,19 @@ export default ({ description })=> {
               gray
               id="email"
               vertical
+              value={message.email}
+              onChange={e => setMessage({ [e.target.id]: e.target.value })}                 
             />
           </Col>
           <Col xs={12}>
-            <Input
+            <Textarea
               placeholder="Mensaje"
               gray
               id="message"
               vertical
+              value={message.message}
+              rows={6}
+              onChange={e => setMessage({ [e.target.id]: e.target.value })}                    
             />
           </Col>   
           <Col xs={12} md={12}>
@@ -157,11 +192,10 @@ export default ({ description })=> {
             </ContactFormButtons>
           </Col>          
           <Col xs={12} md={12}>
-            <ContactFormButtons>
-              <Button block rounded>
-                WhatsApp
-              </Button>
-            </ContactFormButtons>
+            <IconButton href={`https://api.whatsapp.com/send?phone=${office.phone}&text=${message.message}`} alt="send whatsapp message">
+              <span>¿Deseas contactarme por teléfono o enviarme un whatsapp?</span>
+              <PlusCircleOutlined style={{ marginRight: 8, fontSize: 26 }} />
+            </IconButton>
           </Col>          
         </Row>
       </ContactForm>

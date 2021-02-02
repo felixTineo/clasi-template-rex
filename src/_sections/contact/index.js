@@ -12,7 +12,10 @@ const MainCont = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 4rem;
+  margin-top: 125.84px;
+  @media(min-width: 768px){
+    margin-top: 4rem;
+  } 
 `
 
 const Title = styled.h1`
@@ -125,7 +128,7 @@ export default ()=> {
               lat={parseFloat(lat)}
               lng={parseFloat(lng)}
               height={"calc(100% - (5rem + 19px))"}
-              zoom={3}
+              zoom={16}
             />         
             )
           } 

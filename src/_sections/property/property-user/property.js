@@ -5,6 +5,7 @@ import Icons from '../../../_icons';
 
 const MainCont = styled.div`
   padding: 2rem;
+  padding-top: 0;
   //border: 1px solid #EBEBEB;
   height: 100%;
   border-right: none;
@@ -12,7 +13,7 @@ const MainCont = styled.div`
 `
 const PublicObs = styled.p`
   font-weight: bold;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
   white-space: pre-line;
 `
 

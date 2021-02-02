@@ -87,7 +87,7 @@ export default ()=> {
 
   return(
     <MainCont>
-      <Logo dark/>
+      <Logo />
       <ButtonResponsive
         visible={visibleNav}
         onClick={() => setVisibleNav(!visibleNav)}

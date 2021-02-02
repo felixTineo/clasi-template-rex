@@ -97,7 +97,7 @@ export default ()=> {
                 <Description>
                   {state.about.banner.subTitle}
                 </Description>
-                <Button block rounded onClick={()=> navigate(`/about?builderId=${builderId}`)}>
+                <Button block rounded onClick={()=> navigate(`/about`)}>
                   {state.about.banner.buttonText}
                 </Button>
               </DescriptionCont>
