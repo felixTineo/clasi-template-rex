@@ -16,6 +16,7 @@ const FooterRightsCont = styled.div`
   background-color: ${props => props.theme.main.primaryColor};
   color: ${props => props.theme.main.secondaryColor};
   padding: 2rem 0;
+  font-size: .8rem;
   @media(min-width: 768px){
     padding: .5rem 0;
   }  
@@ -38,7 +39,6 @@ const FooterRights = styled.ul`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  font-size: .8rem;
   @media(min-width: 768px){
     flex-direction: row;
     align-items: center;
@@ -48,6 +48,7 @@ const NavCont = styled.div`
   margin: 2rem 0;
   @media(min-width: 768px){
     margin: 0;
+    padding-left: 1rem;
   }      
 `
 const NavLink = styled(Link)`
@@ -134,6 +135,11 @@ const BackTop = styled.button`
     box-shadow: none;
   }
 `
+const FooterText = styled.p`
+  color: #8E8787;
+  text-align: justify;
+  font-size: .8rem;
+`
  
 
 export default ()=> {
@@ -143,12 +149,11 @@ export default ()=> {
   const handleTop = ()=> window.scrollTo(0, 0);
   return(
     <Footer>
-      {console.log("OFFICE OFFICE OFFICE", state)}
       <MainFooter>
         <Container>
           <Row>
             <Col xs={12} md={4}>
-              <GatsbyLink to={`/`} style={{ textDecoration: 'none' }}>
+              <GatsbyLink to={`/?builderId=${builderId}`} style={{ textDecoration: 'none' }}>
                 <LogoCont>
                   {
                     state.main.logo.isImage
@@ -159,26 +164,26 @@ export default ()=> {
               </GatsbyLink>         
               <OfficeInfoCont>
                 <OfficeInfo>
-                  {office.address}
+                  Patricia Isidora 2184, La Reina, Región Metropolitana
                 </OfficeInfo>
                 <OfficeInfo>
-                  {office.phone}
+                  +569 8566 1473 / +569 7408 4291
                 </OfficeInfo>
                 <OfficeInfo>
-                  {office.email}
+                  contacto@cruzpuelmapropiedades.cl
                 </OfficeInfo>
               </OfficeInfoCont>
             </Col>
-            <Col xs={12} md={4}>
+            <Col xs={12} md={5}>
               <NavCont>
                 <Row>
                   <Col xs={6} md={3}>
-                    <NavLink to={`/about`}>
-                      Nosotros
+                    <NavLink to={`/about?builderId=${builderId}`}>
+                      Empresa
                     </NavLink>
                   </Col>
                   <Col xs={6} md={4}>
-                    <NavLink to={`/properties`}>
+                    <NavLink to={`/properties?builderId=${builderId}`}>
                       Propiedades
                     </NavLink>                  
                   </Col>
@@ -190,14 +195,22 @@ export default ()=> {
                     </Col>
                   </Visible> */}
                   <Col xs={6} md={3}>
-                    <NavLink to={`/contact`}>
+                    <NavLink to={`/contact?builderId=${builderId}`}>
                       Contacto
                     </NavLink>                  
-                  </Col>                                          
+                  </Col>       
+                  <Col xs={12}>
+                    <FooterText>
+                      Somos  una  empresa  especializada  en  el  rubro  inmobiliario,  con vasta trayectoria en la negociación de bienes inmuebles.
+                    </FooterText>
+                    <FooterText>
+                      Confíe en nosotros, entregamos un servicio profesional y personalizado a cada uno de nuestros clientes.
+                    </FooterText>
+                  </Col>
                 </Row>
               </NavCont>
             </Col>                  
-            <Col xs={12} md={4}>
+            <Col xs={12} md={3}>
               <Row>
                 <Col xs={12}>
                 </Col>                            
@@ -212,14 +225,14 @@ export default ()=> {
                   <SocialNav>
                     <li style={{ color:"#919191" }}>Siguenos en</li>
                     <SocialItem style={{ marginLeft: "1rem" }}>
-                      <a href={office.facebook}>
+                      <a href="https://www.facebook.com/CruzPuelma-Propiedades-112103357169948">
                         <SvgIcon social={true} width="9" height="17" viewBox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path fillRule="evenodd" clipRule="evenodd" d="M6.27373 2.90134C5.87719 2.90134 5.47699 3.28387 5.47699 3.56846V5.47396H8.27186C8.15933 6.93509 7.9283 8.27121 7.9283 8.27121H5.46269V16.5517H1.78855V8.27032H0V5.48389H1.78855V3.20574C1.78855 2.78916 1.69814 0 5.5531 0H8.27586V2.90134H6.27373Z"/>
                         </SvgIcon>
                       </a>
                     </SocialItem>
                     <SocialItem>
-                      <a href={office.instagram}>
+                      <a href="https://www.instagram.com/cruzypuelmapropiedades/">
                         <SvgIcon social={true} width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path fillRule="evenodd" clipRule="evenodd" d="M5.54187 0H12.1921C15.2523 0 17.734 2.48165 17.734 5.54187V12.1921C17.734 15.2523 15.2523 17.734 12.1921 17.734H5.54187C2.48165 17.734 0 15.2523 0 12.1921V5.54187C0 2.48165 2.48165 0 5.54187 0ZM12.1921 16.0714C14.3313 16.0714 16.0714 14.3313 16.0714 12.1921V5.54187C16.0714 3.40271 14.3313 1.66256 12.1921 1.66256H5.54187C3.40271 1.66256 1.66256 3.40271 1.66256 5.54187V12.1921C1.66256 14.3313 3.40271 16.0714 5.54187 16.0714H12.1921Z"/>
                           <path fillRule="evenodd" clipRule="evenodd" d="M4.43359 8.86697C4.43359 6.41857 6.41869 4.43347 8.86709 4.43347C11.3155 4.43347 13.3006 6.41857 13.3006 8.86697C13.3006 11.3154 11.3155 13.3005 8.86709 13.3005C6.41869 13.3005 4.43359 11.3154 4.43359 8.86697ZM6.09616 8.86697C6.09616 10.3943 7.33975 11.6379 8.86709 11.6379C10.3944 11.6379 11.638 10.3943 11.638 8.86697C11.638 7.33852 10.3944 6.09603 8.86709 6.09603C7.33975 6.09603 6.09616 7.33852 6.09616 8.86697Z"/>
@@ -237,7 +250,7 @@ export default ()=> {
       <FooterRightsCont>
         <Container>
           <FooterRights>
-            <li>2021 © Todos los derechos reservados</li>
+            <li>2020 © Todos los derechos reservados</li>
             <li>Desarrollado por <DevelopBy href="https://clasihome.com/" target="_blank">Clasihome</DevelopBy></li>
           </FooterRights>
         </Container>

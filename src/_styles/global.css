@@ -37,7 +37,7 @@ button{
 
 button, input, select, textarea{
   outline: none;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 input, select{

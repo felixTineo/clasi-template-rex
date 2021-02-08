@@ -76,7 +76,7 @@ export default ()=> {
         <Row>
           <Col xs={12} md={6}>
             <Title>
-              ¿Dudas? ¿Consultas? Estamos aquí para ayudarlo
+              Envíanos un mensaje
             </Title>
             <Form onSubmit={e=> e.preventDefault()}>
               <Row align="center">
@@ -133,10 +133,10 @@ export default ()=> {
             )
           } 
             <SubTitle>
-              Envienos un mensaje y uno de nuestros asesores se pondra en contacto a la brevedad
+
             </SubTitle>
             <SubTitleFooter>
-              También puede escribirnos a <MailSpan>ventas@leasy.cl</MailSpan>
+              También puede escribirnos a <MailSpan>contacto@cruzpuelmapropiedades.cl</MailSpan>
             </SubTitleFooter> 
           </Col>
         </Row>

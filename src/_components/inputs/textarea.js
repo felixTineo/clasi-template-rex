@@ -4,6 +4,7 @@ export default styled.textarea`
   background-color: #fff;
   border-radius: 6px;
   padding: 5px;
+  padding-left: 1rem;
   width: 100%;
   border: none;
   font-size: 1rem;

@@ -39,6 +39,8 @@ export default ({ property }) => {
     priceMin: '',
     priceMax: '',
     bedrooms: '',
+    totalAreaFrom: '',
+    totalAreaTo: '',    
     bathrooms: '',
     currency: '',
   });
@@ -102,23 +104,23 @@ export default ({ property }) => {
               <Row>
                 <Col xs={12} md={2}>
                   <Input
-                    id="priceMin"
-                    value={values.priceMin}
+                    id="totalAreaFrom"
+                    value={values.totalAreaFrom}
                     onChange={onChange}
                     type="number"
                     min={0}
-                    placeholder="Desde"
+                    placeholder="m² desde"
                     primary
                   />                  
                 </Col>
                 <Col xs={12} md={2}>
                   <Input
-                    id="priceMax"
-                    value={values.priceMax}
+                    id="totalAreaTo"
+                    value={values.totalAreaTo}
                     onChange={onChange}
                     type="number"
                     min={0}                
-                    placeholder="Hasta"
+                    placeholder="m² hasta"
                     primary
                   />    
                 </Col>

@@ -41,7 +41,7 @@ export default ({ noMargin })=> {
               <Col xs={12} md={8}>
                 <ButtonCont>
                   <SectionText>
-                    {sectionText}
+                    ¿Necesitas un servicio de excelencia? Podemos ayudarte
                   </SectionText>          
                 </ButtonCont>
               </Col>

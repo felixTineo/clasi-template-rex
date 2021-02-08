@@ -7,7 +7,10 @@ const MainCont = styled.section`
   //background-image: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url(${props => props.theme.about.hero.background});
   //background-size: cover;
   //background-repeat: no-repeat;
-    padding-top: 4rem;
+  height: 100vh;
+  @media(min-width: 768px){
+    height: calc(100vh - 191px);
+  }
 `
 const InnerCont = styled.div`
   height: 70vh;

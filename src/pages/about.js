@@ -6,6 +6,7 @@ import Description from '../_sections/about/description';
 import Stats from '../_sections/about/stats';
 import Team from '../_sections/about/team';
 import Ubication from '../_sections/about/ubication';
+import Contact from '../_sections/home/contact';
 import { graphql } from 'gatsby';
 
 export default ({ data }) => {
@@ -14,9 +15,10 @@ export default ({ data }) => {
       <Hero />
       <History />
       <Description />
-      <Stats />
+      <Contact />
+      {/*<Stats />
       <Team />
-      <Ubication />
+      <Ubication />*/}
     </Layout>    
   )
 }
