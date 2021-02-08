@@ -10,14 +10,14 @@ require('dotenv').config({
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: "Halabi - Propiedades",
+    title: "MYC - Propiedades",
     author: "Clasihome",
     //imageUrl: "https://clasihome.com/properties/back.png",
     description:
       "Tenemos excelentes propiedades pensadas para ti.",
     keywords: `inmobilario, chile, republica, propiedades, republicar, portales, portal, inmobiliaria, web, santiago, corredor, casas, departamentos, venta, arriendo, mejores, precios`,
-    facebook: "https://www.facebook.com/carmenluzpropiedades",
-    instagram: `https://www.instagram.com/cluzpropiedades/`,
+    facebook: "https://www.facebook.com",
+    instagram: `https://www.instagram.com`,
     siteUrl: `https://tender-wozniak-faad50.netlify.app/`,
   },
   plugins: [
