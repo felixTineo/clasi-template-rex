@@ -16,6 +16,7 @@ const FooterRightsCont = styled.div`
   background-color: ${props => props.theme.main.primaryColor};
   color: ${props => props.theme.main.secondaryColor};
   padding: 2rem 0;
+  font-size: .8rem;
   @media(min-width: 768px){
     padding: .5rem 0;
   }  
@@ -47,6 +48,7 @@ const NavCont = styled.div`
   margin: 2rem 0;
   @media(min-width: 768px){
     margin: 0;
+    padding-left: 1rem;
   }      
 `
 const NavLink = styled(Link)`
@@ -133,6 +135,11 @@ const BackTop = styled.button`
     box-shadow: none;
   }
 `
+const FooterText = styled.p`
+  color: #8E8787;
+  text-align: justify;
+  font-size: .8rem;
+`
  
 
 export default ()=> {
@@ -167,12 +174,12 @@ export default ()=> {
                 </OfficeInfo>
               </OfficeInfoCont>
             </Col>
-            <Col xs={12} md={4}>
+            <Col xs={12} md={5}>
               <NavCont>
                 <Row>
                   <Col xs={6} md={3}>
                     <NavLink to={`/about?builderId=${builderId}`}>
-                      Nosotros
+                      Empresa
                     </NavLink>
                   </Col>
                   <Col xs={6} md={4}>
@@ -191,11 +198,19 @@ export default ()=> {
                     <NavLink to={`/contact?builderId=${builderId}`}>
                       Contacto
                     </NavLink>                  
-                  </Col>                                          
+                  </Col>       
+                  <Col xs={12}>
+                    <FooterText>
+                      Somos especialistas en la compra, venta y arriendo de bienes inmuebles.
+                    </FooterText>
+                    <FooterText>
+                      Nuestro equipo cuenta con gran experiencia y trayectoria en el mercado. Hoy nos sentimos contentos de brindar un servicio profesional e integral a cada cliente.
+                    </FooterText>
+                  </Col>
                 </Row>
               </NavCont>
             </Col>                  
-            <Col xs={12} md={4}>
+            <Col xs={12} md={3}>
               <Row>
                 <Col xs={12}>
                 </Col>                            

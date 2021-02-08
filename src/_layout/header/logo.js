@@ -13,7 +13,13 @@ const Nav = styled.span`
   }
 `
 const LogoImg = styled.img`
-  max-width: 200px;
+    max-width: 100px;
+  //max-height: 100px;
+  position: relative;
+  z-index: 500;
+  @media(min-width: 768px){
+    max-width: 200px;
+  }
 `
 const LogoText = styled.span`
   font-size: 1.5rem;

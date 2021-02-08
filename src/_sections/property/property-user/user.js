@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useReducer } from 'react';
 import Context from '../../../_context';
 import styled from 'styled-components';
 import { Row, Col } from 'react-grid-system';
 import { Input } from '../../../_components/inputs';
-import { Button, IconButton } from '../../../_components/buttons';
+import { Button } from '../../../_components/buttons';
+import { PlusCircleOutlined } from '@ant-design/icons';
 
 const MainCont = styled.div`
   padding: 4rem;
@@ -42,6 +43,30 @@ const Avatar = styled.img`
     flex-shrink: 1;
   }
 `
+const NoAvatar = styled.div`
+  min-height: 60px;
+  min-width: 60px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  background-color: ${props => props.theme.main.primaryColor};
+  color: #fff;
+  border: 4px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  @media(min-width: 768px){
+    font-size: 2rem;
+    min-height: 76px;
+    min-width: 76px;
+    height: 120px;
+    width: 120px;
+  }
+`
+
 const UserInfoCont = styled.ul`
   list-style: none;
   padding: 0;
@@ -59,15 +84,47 @@ const ContactForm = styled.form`
 const ContactFormButtons = styled.div`
   margin-top: 1rem;
 `
+const IconButton = styled.a`
+  color: rgba(255, 255, 255, .5);
+  transition: 250ms ease;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-top: 2rem;
+  cursor: pointer;
+  &:visited{
+    color: rgba(255, 255, 255, .5);
+  }  
+  &:hover{
+    color:rgba(255, 255, 255, 1);;
+  }
+`
 
 export default ({ description })=> {
   //const description = useContext(Context).singleProperty;
+  const office = useContext(Context).office;
   const user = { ...description._comercialUser[0], ...description._comercialUser_person[0] };
+  const [message, setMessage] = useReducer((current, next) => ({ ...current, ...next }),{
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+  });
 
   return(
     <MainCont>
       <UserCont>
-        <Avatar src={user.avatar} alt={user.lastName} />
+      {
+          user.avatar?(
+            <Avatar src={user.avatar} alt={user.lastName} />
+          )
+          :(
+            <NoAvatar>
+              <span>{user.firstName.charAt(0).toUpperCase()}</span>
+              <span>{user.lastName.charAt(0).toUpperCase()}</span>
+            </NoAvatar>
+          )
+        }
         <UserInfoCont>
           <UserInfoItem>
             {`${user.firstName} ${user.lastName} - ${user.position}`}
@@ -90,6 +147,8 @@ export default ({ description })=> {
               gray
               id="name"
               vertical
+              value={message.name}
+              onChange={e => setMessage({ [e.target.id]: e.target.value })}            
             />
           </Col>
           <Col xs={12}>
@@ -98,6 +157,8 @@ export default ({ description })=> {
               gray
               id="phone"
               vertical
+              value={message.phone}
+              onChange={e => setMessage({ [e.target.id]: e.target.value })}            
             />
           </Col>
           <Col xs={12}>
@@ -106,6 +167,8 @@ export default ({ description })=> {
               gray
               id="email"
               vertical
+              value={message.email}
+              onChange={e => setMessage({ [e.target.id]: e.target.value })}            
             />
           </Col>
           <Col xs={12}>
@@ -114,6 +177,8 @@ export default ({ description })=> {
               gray
               id="message"
               vertical
+              value={message.message}
+              onChange={e => setMessage({ [e.target.id]: e.target.value })}            
             />
           </Col>   
           <Col xs={12} md={12}>
@@ -123,20 +188,12 @@ export default ({ description })=> {
               </Button>
             </ContactFormButtons>
           </Col>          
-          <Col xs={12} md={12}>
-            <ContactFormButtons>
-              <Button block rounded>
-                LLamar
-              </Button>
-            </ContactFormButtons>
-          </Col>
-          <Col xs={12} md={12}>
-            <ContactFormButtons>
-              <Button block rounded>
-                whatsapp
-              </Button>
-            </ContactFormButtons>
-          </Col>          
+          <Col xs={12}>
+            <IconButton href={`https://api.whatsapp.com/send?phone=${office.phone}&text=${message.message}`} alt="send whatsapp message">
+              <span>¿Deseas contactarme por teléfono o enviarme un WhatsApp?</span>
+              <PlusCircleOutlined style={{ marginRight: 8, fontSize: 26 }} />
+            </IconButton>
+          </Col>         
         </Row>
       </ContactForm>
     </MainCont>

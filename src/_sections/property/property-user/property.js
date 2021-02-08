@@ -10,10 +10,6 @@ const MainCont = styled.div`
   border-right: none;
   //background-color: ${props => props.theme.main.primaryColor};
 `
-const PublicObs = styled.p`
-  font-weight: bold;
-  margin: 2rem 0;
-`
 
 const Title = styled.h2`
   color: ${props => props.theme.main.primaryColor};
@@ -31,6 +27,12 @@ const CharItemLi = styled.li`
   justify-content: flex-start;
   margin-bottom: 1rem;
   color: #002438;
+`
+const PublicObs = styled.p`
+  font-weight: bold;
+  margin: 2rem 0;
+  padding-right: 4rem;
+  white-space: pre-line;
 `
 
 const CharItem = ({ icon, name }) => {
@@ -51,6 +53,11 @@ export default ({ description })=> {
   return(
     <MainCont>
       <Row>
+        <Col xs={12}>
+          <PublicObs>
+          {description.publicObservations}              
+          </PublicObs>
+        </Col>
         <Col xs={12}>
           <Title>
             Características

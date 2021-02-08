@@ -8,7 +8,7 @@ import { SearchOutlined, PlusCircleOutlined, CloseCircleOutlined } from '@ant-de
 const Form = styled.form`
   background-color: ${props => props.theme.main.primaryColor};
   width: 100%;
-  padding: 8.5vh 0;
+  //padding: 8.5vh 0;
 `
 
 export default () => {

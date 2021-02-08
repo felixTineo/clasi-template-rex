@@ -31,7 +31,7 @@ export default ({ noContact })=> {
       <Row nogutter>
         <Col xs={12} md={6}>
           <Title>
-            {state.title}
+          Coordinemos y reunámonos. Avenida Kennedy 7031 Of. 403, Las Condes
           </Title>
         </Col>
         <Col xs={12} md={6}>
@@ -41,7 +41,7 @@ export default ({ noContact })=> {
               lat={parseFloat(lat)}
               lng={parseFloat(lng)}
               height={300}
-              zoom={3}
+              zoom={18}
             />         
             )
           } 

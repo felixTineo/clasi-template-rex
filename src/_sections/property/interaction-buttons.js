@@ -15,6 +15,7 @@ const PublicObs = styled.p`
   font-weight: bold;
   margin: 2rem 0;
   padding-right: 4rem;
+  white-space: pre-line;
 `
 
 export default ({ description })=> {
@@ -47,11 +48,7 @@ export default ({ description })=> {
             </Col>          
           </Row>
         </Col>      
-        <Col xs={12} md={6} pull={{ md: 6 }}>
-          <PublicObs>
-            {description.publicObservations}              
-          </PublicObs>
-        </Col>        
+
       </Row>
     </Container>  
   )

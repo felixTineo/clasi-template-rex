@@ -51,7 +51,7 @@ const TitleService = styled(Title)`
   padding-top: 4rem;
   text-align: center;
   @media(min-width: 578px){
-    width: 50%;
+    //width: 50%;
   }
 `
 const SubTitleService = styled(Description)`
@@ -107,7 +107,7 @@ export default ()=> {
         <Row gutterWidth={32}>
           <Col xs={12}>
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <TitleService>Ofrecemos un servicio ajustado a las necesidades de cada cliente</TitleService>
+              <TitleService>Cuenta con nosotros,<br /> te asesoraremos en todo.</TitleService>
             </div>
           </Col>
           <Col xs={12}>

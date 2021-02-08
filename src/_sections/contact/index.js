@@ -125,15 +125,15 @@ export default ()=> {
               lat={parseFloat(lat)}
               lng={parseFloat(lng)}
               height={"calc(100% - (5rem + 19px))"}
-              zoom={3}
+              zoom={18}
             />         
             )
           } 
             <SubTitle>
-              Envienos un mensaje y uno de nuestros asesores se pondra en contacto a la brevedad
+              Escríbenos y una persona de nuestro equipo te contactará a la brevedad.
             </SubTitle>
             <SubTitleFooter>
-              También puede escribirnos a <MailSpan>ventas@leasy.cl</MailSpan>
+              También puede escribirnos a <MailSpan>contacto@propiedadesmyc.cl</MailSpan>
             </SubTitleFooter> 
           </Col>
         </Row>

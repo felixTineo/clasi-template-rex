@@ -21,9 +21,10 @@ const TitleContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   height: 100%;
-  //padding-top: 81px;
+  padding-top: 107px;
   @media(min-width: 768px){
     //padding-top: 0;
+    height: calc(100vh - 166.7px - 174.72px);
     justify-content: space-between;
     align-items: flex-start;
     padding-bottom: 1rem;
@@ -34,6 +35,9 @@ const HeroImage = styled.img`
   height: 100%;
   object-fit: cover;
   object-position: center;
+  @media(min-width: 768px){
+    height: calc(100vh - 166.7px - 174.72px);
+  }
 `
 const ButtonContainer = styled.div`
 
