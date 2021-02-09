@@ -73,7 +73,7 @@ export default ()=> {
         <Row>
           <Col xs={12} md={6}>
             <Title>
-              ¿Dudas? ¿Consultas? Estamos aquí para ayudarlo
+              Escríbenos y una persona de nuestro equipo te contactará a la brevedad.
             </Title>
             <Form onSubmit={e=> e.preventDefault()}>
               <Row align="center">

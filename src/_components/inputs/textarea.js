@@ -5,6 +5,7 @@ export default styled.textarea`
   border-radius: 6px;
   padding: 5px;
   width: 100%;
+  padding-left: 1rem;
   border: none;
   font-size: 1rem;
   font-family: "Relaway";

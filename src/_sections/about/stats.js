@@ -58,7 +58,7 @@ export default ()=> {
                 +{state.items.years.value}
               </Value>
               <Meta>
-                {state.items.years.meta}
+                Años de trayectoria
               </Meta>
             </InfoGram>
           </Col>

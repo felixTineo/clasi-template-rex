@@ -3,6 +3,7 @@ import Layout from '../_layout';
 import Hero from '../_sections/home/hero';
 import Properties from '../_sections/home/properties';
 import About from '../_sections/home/about';
+import Covid from '../_sections/home/covid';
 import Contact from '../_sections/home/contact';
 import { graphql } from 'gatsby';
 
@@ -12,6 +13,7 @@ export default function Home({ data }) {
       <Hero />
       <Properties />
       <About />
+      <Covid />
       <Contact />
     </Layout>
   )

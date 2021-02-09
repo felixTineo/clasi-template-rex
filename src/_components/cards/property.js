@@ -5,7 +5,7 @@ import Link from '../link';
 import { truncate, priceFormat } from '../../_util';
 
 const Card = styled.div`
-  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("${props => props.src}");
+  background-image: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url("${props => props.src}");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
