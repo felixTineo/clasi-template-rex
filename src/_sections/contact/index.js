@@ -63,6 +63,7 @@ const MailSpan = styled.span`
 `
 const SubTitleFooter = styled(SubTitle)`
   margin-top: 4rem;
+  text-align: center;
 `
 const ButtonContainer = styled.div`
    //margin-top: 32px;
@@ -147,6 +148,11 @@ export default ()=> {
             </ImageCont>
           </Col>
           </Hidden>
+          <Col xs={12}>
+            <SubTitleFooter>
+              También puede escribirnos a <MailSpan>contacto@cruzpuelmapropiedades.cl</MailSpan>
+            </SubTitleFooter> 
+          </Col>
 {/*          <Col xs={12} md={6}>
           {
             lat && (
