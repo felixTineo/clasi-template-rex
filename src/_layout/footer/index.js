@@ -151,8 +151,8 @@ export default ()=> {
     <Footer>
       <MainFooter>
         <Container>
-          <Row>
-            <Col xs={12} md={4}>
+          <Row align="center">
+            <Col xs={12} md={5}>
               <GatsbyLink to={`/?builderId=${builderId}`} style={{ textDecoration: 'none' }}>
                 <LogoCont>
                   {
@@ -163,18 +163,18 @@ export default ()=> {
                 </LogoCont>                        
               </GatsbyLink>         
               <OfficeInfoCont>
-                <OfficeInfo>
+{/*                <FooterText>
                   Patricia Isidora 2184, La Reina, Región Metropolitana
-                </OfficeInfo>
-                <OfficeInfo>
+</FooterText>*/}
+                <FooterText>
                   +569 8566 1473 / +569 7408 4291
-                </OfficeInfo>
-                <OfficeInfo>
+                </FooterText>
+                <FooterText>
                   contacto@cruzpuelmapropiedades.cl
-                </OfficeInfo>
+                </FooterText>
               </OfficeInfoCont>
             </Col>
-            <Col xs={12} md={5}>
+            <Col xs={12} md={4}>
               <NavCont>
                 <Row>
                   <Col xs={6} md={3}>

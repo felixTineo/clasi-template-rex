@@ -19,7 +19,7 @@ const SectionText = styled.p`
   @media(min-width: 768px){
     font-size: 22px;
     text-align: left;
-    width: 80%;
+    width: 100%;
   }
 `
 
@@ -37,7 +37,7 @@ export default ({ noMargin })=> {
     <Fragment>
         <SectionCont noMargin={noMargin}>
           <Container>
-            <Row align="center" justify="center">
+            <Row align="center">
               <Col xs={12} md={8}>
                 <ButtonCont>
                   <SectionText>

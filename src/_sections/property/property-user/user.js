@@ -193,7 +193,7 @@ export default ({ description })=> {
           </Col>          
           <Col xs={12} md={12}>
             <IconButton href={`https://api.whatsapp.com/send?phone=${office.phone}&text=${message.message}`} alt="send whatsapp message">
-              <span>¿Deseas contactarme por teléfono o enviarme un whatsapp?</span>
+              <span>¿Deseas contactarme por teléfono o enviarme un WhatsApp?</span>
               <PlusCircleOutlined style={{ marginRight: 8, fontSize: 26 }} />
             </IconButton>
           </Col>          
