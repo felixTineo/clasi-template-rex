@@ -152,7 +152,7 @@ export default ()=> {
       <MainFooter>
         <Container>
           <Row align="center">
-            <Col xs={12} md={5}>
+            <Col xs={12} md={4}>
               <GatsbyLink to={`/?builderId=${builderId}`} style={{ textDecoration: 'none' }}>
                 <LogoCont>
                   {
@@ -210,7 +210,7 @@ export default ()=> {
                 </Row>
               </NavCont>
             </Col>                  
-            <Col xs={12} md={3}>
+            <Col xs={12} md={4}>
               <Row>
                 <Col xs={12}>
                 </Col>                            

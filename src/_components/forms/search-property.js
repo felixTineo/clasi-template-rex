@@ -42,7 +42,7 @@ export default ({ property }) => {
     totalAreaFrom: '',
     totalAreaTo: '',    
     bathrooms: '',
-    currency: '',
+    currency: 'CLP',
   });
   const params = getSearchParams();  
 
@@ -102,29 +102,51 @@ export default ({ property }) => {
           filter && (
             <Filters>
               <Row>
-                <Col xs={12} md={2}>
+                <Col xs={12} md={3}>
+                  <Input
+                    id="priceMin"
+                    value={values.priceMin}
+                    onChange={onChange}
+                    type="number"
+                    min={0}
+                    placeholder="Precio desde"
+                    primary
+                  />                  
+                </Col>
+                <Col xs={12} md={3}>
+                  <Input
+                    id="priceMax"
+                    value={values.priceMax}
+                    onChange={onChange}
+                    type="number"
+                    min={0}                
+                    placeholder="Precio hasta"
+                    primary
+                  />    
+                </Col>                 
+                <Col xs={12} md={3}>                 
                   <Input
                     id="totalAreaFrom"
                     value={values.totalAreaFrom}
                     onChange={onChange}
                     type="number"
                     min={0}
-                    placeholder="m² desde"
+                    placeholder="Superficie desde"
                     primary
                   />                  
                 </Col>
-                <Col xs={12} md={2}>
+                <Col xs={12} md={3}>
                   <Input
                     id="totalAreaTo"
                     value={values.totalAreaTo}
                     onChange={onChange}
                     type="number"
                     min={0}                
-                    placeholder="m² hasta"
+                    placeholder="Superficie hasta"
                     primary
                   />    
                 </Col>
-                <Col xs={12} md={2}>
+                <Col xs={12} md={3}>
                   <Input
                     id="bedrooms"
                     value={values.bedrooms}
@@ -135,7 +157,7 @@ export default ({ property }) => {
                     primary
                   />         
                 </Col>
-                <Col xs={12} md={2}>
+                <Col xs={12} md={3}>
                   <Input
                     id="bathrooms"
                     value={values.bathrooms}
@@ -146,19 +168,19 @@ export default ({ property }) => {
                     primary
                   />         
                 </Col>
-                <Col xs={12} md={2}>
+                <Col xs={12} md={3}>
                   <Select
                     id="currency"
                     value={values.currency}
                     onChange={onChange}
-                    default="Divisa"
+                    default="Moneda"
                     options={["CLP", "UF"]}
                     gray
                     primary
                   />                     
                 </Col>
-                <Col xs={12} md={2}>
-                  <Button block primary rounded>
+                <Col xs={12} md={3}>
+                  <Button block primary rounded onClick={onFinish}>
                     Aplicar filtros
                   </Button>
                 </Col>                                                            

@@ -70,7 +70,7 @@ export default ()=> {
         <NavItem noMargin>
           <Link to={`/about`}>
             <NavLink>
-              Nosotros
+              Empresa
             </NavLink>
           </Link>
         </NavItem>

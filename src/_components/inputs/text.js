@@ -14,7 +14,7 @@ export default styled.input`
   border: 1px solid ${props => props.primary ? props.theme.main.primaryColor : "#fff"};
   color: ${props => props.primary ? props.theme.main.primaryColor : "#fff"};
   @media(min-width: 768px){
-    margin-bottom: ${props => props.vertical ? "2rem" : "0"};
+    margin-bottom: ${props => props.vertical ? "2rem" : "1rem"};
     box-shadow: ${props => props.shadow ? "0px 0px 1px rgba(0, 0, 0, .12), 0px 0px 2px rgba(0, 0, 0, .12), 0px 4px 4px rgba(0, 0, 0, .12), 0px 8px 8px rgba(0, 0, 0, .12)" : "none"};
   }
   &::placeholder{
