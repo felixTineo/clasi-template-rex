@@ -4,15 +4,38 @@ import Context from '../../_context';
 import { SearchForm, FormCode } from '../../_components/forms'
 import { Container, Row, Col, Hidden } from 'react-grid-system';
 import { DownCircleFilled } from '@ant-design/icons';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Dot } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const MainCont = styled.section`
   position: relative;
   min-height: calc(100vh - 82px);
   position: relative;
-  color: ${props => props.theme.main.primaryColor};
+  color: #fff;
   @media(min-width: 768px){
     align-items: center;    
+    height: calc(100vh - 166.7px - 174.72px);
   }
+`
+const SliderContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url("/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  @media(min-width: 768px){
+    height: calc(100vh - 166.7px - 174.72px);
+  }
+`
+const SlideImage = styled.div`
+  width: 100%;
+  height: calc(100vh - 166.7px - 174.72px);
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("${props => props.src}");
+  background-size: cover;
+  background-position: center;
 `
 
 const TitleContainer = styled.div`
@@ -53,21 +76,60 @@ const Title = styled.h1`
   }
 `
 const FormSelectButton = styled.button`
-  color: ${props => props.active ?  props.theme.main.primaryColor : '#ADADAD'};
+  //color: ${props => props.active ?  props.theme.main.primaryColor : '#ADADAD'};
+  color:#fff;
   outline: none;
   border: none;
   width: 100%;
   background-color: transparent;
   display: flex;
   align-items: center;
-  font-weight: bold;
+  font-weight: ${props => props.active ?  "bold" : 'normal'};
 `
+const CustonDot = styled(Dot)`
+  position: absolute;
+  bottom: 0;
+  width: 12px !important;
+  padding: 0;
+  height: 12px;
+  border-radius: 50%;
+  margin-bottom: .5rem;
+  margin-right: 1rem;
+  border: 1px solid #fff;
+  background: transparent;
+  &:disabled{
+    background: #fff;
+  }
+`
+
+const BackgroundSlider = ()=> (
+  <CarouselProvider
+    naturalSlideWidth={100}
+    //naturalSlideHeight={125}
+    isIntrinsicHeight
+    totalSlides={3}
+    isPlaying
+    interval={3000}
+  >
+    <Slider>
+      <Slide index={0}><SlideImage src="/hero-slide-1.jpg" alt="tasa de té" /></Slide>
+      <Slide index={1}><SlideImage src="/hero-slide-2.jpg" alt="cocina" /></Slide>
+      <Slide index={2}><SlideImage src="/hero-slide-3.jpg" alt="trabajo" /></Slide>
+    </Slider>
+      <CustonDot slide={0} style={{ right: "46px" }} />
+      <CustonDot slide={1} style={{ right: "23px" }} />
+      <CustonDot slide={2} style={{ right: "0px" }} />    
+  </CarouselProvider>
+)
 
 export default ()=> {
   const state = useContext(Context);
   const [searchByCode, setSearchByCode] = useState(false);
   return(
     <MainCont>
+      <SliderContainer>
+        <BackgroundSlider />
+      </SliderContainer>
       <Container>
         <Row>
           <Col xs={12} md={5}>
@@ -97,7 +159,7 @@ export default ()=> {
           </Col>
           <Hidden xs>
             <Col xs={12} md={7}>
-              <HeroImage src="/hero.jpg" />
+              {/*<HeroImage src="/hero.jpg" />*/}
             </Col>          
           </Hidden>
         </Row>

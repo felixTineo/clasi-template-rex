@@ -223,7 +223,7 @@ export default ()=> {
                         </BackTopCont>
                     </Hidden>                   
                   <SocialNav>
-                    <li style={{ color:"#919191" }}>Siguenos en</li>
+                    <li style={{ color:"#919191" }}>Síguenos en</li>
                     <SocialItem style={{ marginLeft: "1rem" }}>
                       <a href="https://www.facebook.com">
                         <SvgIcon social={true} width="9" height="17" viewBox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">
