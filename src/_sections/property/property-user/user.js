@@ -1,10 +1,10 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext, useReducer , useState} from 'react';
 import Context from '../../../_context';
 import styled from 'styled-components';
 import { Row, Col } from 'react-grid-system';
-import { Input } from '../../../_components/inputs';
-import { Button } from '../../../_components/buttons';
-import { PlusCircleOutlined } from '@ant-design/icons';
+import { Input, Textarea } from '../../../_components/inputs';
+import { Button,  } from '../../../_components/buttons';
+import { PlusCircleOutlined, LoadingOutlined} from '@ant-design/icons';
 
 const MainCont = styled.div`
   padding: 4rem;
@@ -66,7 +66,6 @@ const NoAvatar = styled.div`
     width: 120px;
   }
 `
-
 const UserInfoCont = styled.ul`
   list-style: none;
   padding: 0;
@@ -85,7 +84,7 @@ const ContactFormButtons = styled.div`
   margin-top: 1rem;
 `
 const IconButton = styled.a`
-  color: rgba(255, 255, 255, .5);
+  color: rgba(255, 255, 255, .7);
   transition: 250ms ease;
   display: flex;
   align-items: center;
@@ -93,29 +92,75 @@ const IconButton = styled.a`
   margin-top: 2rem;
   cursor: pointer;
   &:visited{
-    color: rgba(255, 255, 255, .5);
+    color: rgba(255, 255, 255, .7);
   }  
   &:hover{
-    color:rgba(255, 255, 255, 1);;
+    color: #fff;
   }
+`
+const LoadingCont = styled.div`
+  background-color: rgba(255, 255, 255, .5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${props => props.theme.main.primaryColor};
+  font-size: 2rem;
 `
 
 export default ({ description })=> {
   //const description = useContext(Context).singleProperty;
   const office = useContext(Context).office;
   const user = { ...description._comercialUser[0], ...description._comercialUser_person[0] };
+  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useReducer((current, next) => ({ ...current, ...next }),{
     name: '',
-    phone: '',
+    mobile: '',
     email: '',
     message: '',
   });
+
+  const onSubmit = async(e)=> {
+    e.preventDefault();
+    setLoading(true);
+    try{
+      const options = {
+        headers: { "Content-type" : "application/json" },
+        method: "POST",
+        body: JSON.stringify({
+          ...message,
+          nameAgent: `${user.firstName} ${user.lastName}`,
+          emailAgent: user.email,
+        }),
+        mode: "cors",
+      }
+
+      const data = await fetch("/sendmail.php", options);
+      const result = await data.text();
+      console.log("MAIL API RESULT", result);
+      setLoading(false);
+      setMessage({
+        name: '',
+        mobile: '',
+        email: '',
+        message: '',          
+      })              
+    }catch(e){
+      setLoading(false);
+      console.log("error", e);
+    }
+  }
 
   return(
     <MainCont>
       <UserCont>
       {
-          user.avatar?(
+          user.Avatar?(
             <Avatar src={user.avatar} alt={user.lastName} />
           )
           :(
@@ -133,14 +178,24 @@ export default ({ description })=> {
             {user.phone && user.phone.countryCode + " " + user.phone.areaCode + " " + user.phone.phoneNumber}
           </UserInfoItem>
           <UserInfoItem>
+            { user.mobile && `${user.mobile.countryCode} ${user.mobile.areaCode} ${user.mobile.phoneNumber}`}
+          </UserInfoItem>                  
+          <UserInfoItem>
             {user.email}
           </UserInfoItem>
         </UserInfoCont>
       </UserCont>
       <ContactForm
-        onSubmit={(e)=> e.preventDefault() }
+        onSubmit={onSubmit}
       >
         <Row>
+          {
+            loading && (
+              <LoadingCont>
+                <LoadingOutlined spin />
+              </LoadingCont>
+            )
+          }                      
           <Col xs={12}>
             <Input
               placeholder="Nombre"
@@ -148,17 +203,17 @@ export default ({ description })=> {
               id="name"
               vertical
               value={message.name}
-              onChange={e => setMessage({ [e.target.id]: e.target.value })}            
+              onChange={e => setMessage({ [e.target.id]: e.target.value })} 
             />
           </Col>
           <Col xs={12}>
             <Input
               placeholder="Teléfono"
               gray
-              id="phone"
+              id="mobile"
               vertical
               value={message.phone}
-              onChange={e => setMessage({ [e.target.id]: e.target.value })}            
+              onChange={e => setMessage({ [e.target.id]: e.target.value })}                
             />
           </Col>
           <Col xs={12}>
@@ -168,17 +223,18 @@ export default ({ description })=> {
               id="email"
               vertical
               value={message.email}
-              onChange={e => setMessage({ [e.target.id]: e.target.value })}            
+              onChange={e => setMessage({ [e.target.id]: e.target.value })}                 
             />
           </Col>
           <Col xs={12}>
-            <Input
+            <Textarea
               placeholder="Mensaje"
               gray
               id="message"
               vertical
               value={message.message}
-              onChange={e => setMessage({ [e.target.id]: e.target.value })}            
+              rows={6}
+              onChange={e => setMessage({ [e.target.id]: e.target.value })}                    
             />
           </Col>   
           <Col xs={12} md={12}>
@@ -188,12 +244,12 @@ export default ({ description })=> {
               </Button>
             </ContactFormButtons>
           </Col>          
-          <Col xs={12}>
+          <Col xs={12} md={12}>
             <IconButton href={`https://api.whatsapp.com/send?phone=${office.phone}&text=${message.message}`} alt="send whatsapp message">
               <span>¿Deseas contactarme por teléfono o enviarme un WhatsApp?</span>
               <PlusCircleOutlined style={{ marginRight: 8, fontSize: 26 }} />
             </IconButton>
-          </Col>         
+          </Col>          
         </Row>
       </ContactForm>
     </MainCont>

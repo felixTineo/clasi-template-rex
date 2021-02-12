@@ -4,12 +4,16 @@ import { Row, Col, Visible } from 'react-grid-system';
 import InteractionButtons from '../interaction-buttons';
 import { truncate } from '../../../_util';
 import { EnvironmentOutlined } from '@ant-design/icons';
+import { priceFormat } from '../../../_util';
 
 const MainCont = styled.div`
   //background-color: #fff;
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
   @media(min-width: 768px){
     padding: 2rem .75rem;
+    padding-bottom: 0;
     padding-left: 0;
   }
 `
@@ -18,9 +22,16 @@ const OperationCode = styled.p`
   font-weight: bold;
   font-size: 1rem;
 `
+const TitlePriceCont = styled.div`
+  flex-shrink: 0;
+  flex-grow: 1;
+  @media(min-width: 768px){
+    height: calc(100% - 145px);
+  }
+`
 const Title = styled.h1`
   font-weight: 300;
-  font-size: 50px;
+  font-size: 42px;
   color: ${props => props.theme.main.primaryColor};
 `
 const Price = styled(Title)`
@@ -63,12 +74,14 @@ export default ({ description })=> {
     <MainCont>
       <Row>
         <Col xs ={12}>
-          <Title>
-            {truncate(description.title, 70)}
-          </Title>
-          <Price>
-            {`${description.currency} ${description.value}`}
-          </Price>
+          <TitlePriceCont>
+            <Title>
+              {truncate(description.title, 70)}
+            </Title>
+            <Price>
+              {`${description.currency} ${priceFormat(description.value)}`}
+            </Price>
+          </TitlePriceCont>
           <UbicationCont>
             <OperationCode>
               {`${description.operation} - COD.: ${description.code}`}

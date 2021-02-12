@@ -16,10 +16,12 @@ const Title = styled.h2`
   color: ${props => props.theme.main.primaryColor};
   margin: 0;
   margin-bottom: 4rem;
+  padding-top: 6rem;
   font-weight: 300;
   width: 70%;
   @media(min-width:768px){
     width: 60%;
+    padding-top: 0;
   }
 `
 

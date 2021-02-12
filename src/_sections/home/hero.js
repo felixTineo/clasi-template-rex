@@ -23,7 +23,6 @@ const SliderContainer = styled.div`
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url("/hero.jpg");
   background-size: cover;
   background-position: center;
   @media(min-width: 768px){
@@ -32,10 +31,13 @@ const SliderContainer = styled.div`
 `
 const SlideImage = styled.div`
   width: 100%;
-  height: calc(100vh - 166.7px - 174.72px);
+  height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("${props => props.src}");
   background-size: cover;
   background-position: center;
+  @media(min-width: 768px){
+    height: calc(100vh - 166.7px - 174.72px);
+  }
 `
 
 const TitleContainer = styled.div`

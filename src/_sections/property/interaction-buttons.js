@@ -15,13 +15,12 @@ const PublicObs = styled.p`
   font-weight: bold;
   margin: 2rem 0;
   padding-right: 4rem;
-  white-space: pre-line;
 `
 
 export default ({ description })=> {
   return(
     <Container>
-      <Row align="center" nogutter>
+      <Row nogutter>
         <Col xs={12} md={6} push={{ md: 6 }}>
           <Row>
             <Col xs={12} md={6}>
@@ -47,8 +46,7 @@ export default ({ description })=> {
               </Button>            
             </Col>          
           </Row>
-        </Col>      
-
+        </Col>            
       </Row>
     </Container>  
   )

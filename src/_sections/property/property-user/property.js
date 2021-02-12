@@ -5,10 +5,16 @@ import Icons from '../../../_icons';
 
 const MainCont = styled.div`
   padding: 2rem;
+  padding-top: 0;
   //border: 1px solid #EBEBEB;
   height: 100%;
   border-right: none;
   //background-color: ${props => props.theme.main.primaryColor};
+`
+const PublicObs = styled.p`
+  font-weight: bold;
+  margin-bottom: 2rem;
+  white-space: pre-line;
 `
 
 const Title = styled.h2`
@@ -24,23 +30,22 @@ const CharsCont = styled.ul`
 const CharItemLi = styled.li`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  max-width: 12rem;
   margin-bottom: 1rem;
   color: #002438;
-`
-const PublicObs = styled.p`
-  font-weight: bold;
-  margin: 2rem 0;
-  padding-right: 4rem;
-  white-space: pre-line;
+  font-size: .8rem;
 `
 
-const CharItem = ({ icon, name }) => {
+const CharItem = ({ icon, name, value }) => {
   const Icon = Icons[icon];
   return(
     <CharItemLi>
+      <div>
       <Icon className="clasi-icon" />
       <span style={{ marginLeft: 16 }}>{name}</span>
+      </div>
+      <span style={{ marginLeft: 16 }}>{value}</span>
     </CharItemLi>
   )
 }
@@ -53,11 +58,11 @@ export default ({ description })=> {
   return(
     <MainCont>
       <Row>
-        <Col xs={12}>
-          <PublicObs>
-          {description.publicObservations}              
-          </PublicObs>
-        </Col>
+      <Col xs={12}>
+        <PublicObs>
+          {description.publicObservations}
+        </PublicObs>
+      </Col>
         <Col xs={12}>
           <Title>
             Características
