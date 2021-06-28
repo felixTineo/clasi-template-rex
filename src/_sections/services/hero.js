@@ -48,7 +48,7 @@ export default ()=> {
               </Title>
             </Col>
             <Col xs={12} md={6}>
-              <Image src={"/60d9d23114a75.jpg"} alt={state.hero.title} />
+              <Image src={"/60d9d23114a75.jpg"} alt="" />
             </Col>            
           </Row>
       </Container>

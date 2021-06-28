@@ -55,33 +55,33 @@ class FormatData{
     this.home = {
       hero:{
         visible: true,
-        title: props?.home?.hero?.title || noData.home.hero.title,
-        background: props?.home?.hero.background || noData.home.hero.background,
+        title: "",
+        background: "",
       },
       properties:{
         visible: true,
-        title: props?.home?.properties?.title || noData.home.properties.title,
-        footer: props?.home?.properties?.footer || noData.home.properties.footer,
+        title: "",
+        footer: "",
         bannerImage: "",
-        buttonText: props?.home?.properties?.buttonText || noData.home.properties.buttonText,
-        items: props?.home?.properties?.items || noData.home.properties.items,
+        buttonText: "",
+        items: "",
       },
       about:{
         banner:{
           visible: true,
-          image: props?.home?.about.banner.image || noData.home.about.banner.image,
-          title: props?.home?.about.banner.title || noData.home.about.banner.title,
-          subTitle: props?.home?.about.banner.subTitle || noData.home.about.banner.subTitle,
-          buttonText: props?.home?.about.banner.buttonText || noData.home.about.banner.buttonText,
+          image: "",
+          title: "",
+          subTitle: "",
+          buttonText: "",
         },
       },
       services:{
         visible: true,
-        items: props?.home?.services.items || noData.home.services.items,
+        items: "",
       },
       reviews:{
         visible: true,
-        items: props?.home?.reviews.items || noData.home.reviews.items,
+        items: "",
       },
       contact:{
         visible: true,
@@ -89,42 +89,8 @@ class FormatData{
         buttonText: "contacto"
       },
     }
-    this.about = {
-      ...props?.about,
-      history:{
-        ...props?.about?.history,
-        background: props.about?.history.background ? props.about.history.background : "/history-image.jpg",
-      },
-      hero:{
-        ...props?.about?.hero,
-        background: props.about?.hero.background || '/about-hero.jpg',
-      },
-      description:{
-        ...props?.about?.description,
-        background: props?.about?.description.background ? props.about.description.background :  "/about-description.jpg",
-      },
-      stats:{
-        items:{
-          years:{
-            value: props?.about?.stats.years || 50,
-            meta: "Años de trayectoria",
-          },
-          transactions:{
-            value: props?.about?.stats.transactions || 500,
-            meta: "Operaciones exitosas anualmente",
-          },
-          properties:{
-            value: props?.about?.stats.properties || 1000,
-            meta: "Propiedades a cargo",
-          },
-          proffesionals:{
-            value: props?.about?.stats.proffesionals || 70,
-            meta: "Clientes satisfechos",
-          },          
-        }
-      }
-    };
-    this.paginateProperties = props?.paginateProperties || [];
+    this.about = {};
+    this.paginateProperties = [];
     this.singleProperty = {
       mainImage: "/property/main.jpg",
       images: [
