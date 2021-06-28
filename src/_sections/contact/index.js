@@ -202,7 +202,7 @@ export default ()=> {
               Escríbenos y una persona de nuestro equipo te contactará a la brevedad.
             </SubTitle>
             <SubTitleFooter>
-              También puede escribirnos a <MailSpan>contacto@propiedadescyp.cl</MailSpan>
+              También puede escribirnos a <MailSpan>contacto@ripropiedades.cl</MailSpan>
             </SubTitleFooter> 
           </Col>
         </Row>

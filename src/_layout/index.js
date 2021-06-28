@@ -59,12 +59,12 @@ export default ({ children, data })=> {
           <Helmet>
             <meta charSet="utf-8" />
             <meta name="description" content="Encuentra aquí la propiedad que estás buscando" />
-            <title>Propiedades | CyP</title>
+            <title>Rojas Iñiguez | Propiedades</title>
             <link rel="canonical" href="http://propiedadescyp.cl" />
             <meta name="og:url" content="http://propiedadescyp.cl" />
-            <meta name="og:title" content="Propiedades | CyP" />
+            <meta name="og:title" content="Rojas Iñiguez | Propiedades" />
             <meta name="og:description" content="Encuentra aquí la propiedad que estás buscando" />
-            <meta name="og:image" content="http://propiedadescyp.cl/logo.png" />
+            {/* <meta name="og:image" content="http://propiedadescyp.cl/logo.png" /> */}
             <meta name="og:type" content="website" />            
           </Helmet>           
           <Header />

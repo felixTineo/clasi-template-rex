@@ -102,7 +102,7 @@ parajes de esta zona destinados a satisfacer las distintas necesidades nuestros
 clientes. Somos
                 </Description>
                 <Button block rounded onClick={()=> navigate(`/about?builderId=${builderId}`)}>
-                  {state.about.banner.buttonText}
+                  Conózcanos
                 </Button>
               </DescriptionCont>
             </Col>

@@ -57,7 +57,7 @@ export default ({ title, image, onClick, buttonText, icon }) => {
         </Col>
         <Col xs={12} md={3}>
           <Button onClick={onClick} block primary rounded>
-            {buttonText}
+            Ver más
           </Button>
         </Col>        
       </Row>
